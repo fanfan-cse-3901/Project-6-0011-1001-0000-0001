@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <!--File Edited on 07/13/2020 by Yifan Yao: Add notice and alert-->
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
