@@ -1,20 +1,22 @@
-<h2>Change your password</h2>
+<!-- File Edited on 07/19/2020 by Yifan Yao: Insert Bootstrap for better view -->
+<div class="container">
+<h2 class="pt-5">Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", :class => "form-control w-25" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control w-25" %>
   </div>
 
   <div class="actions">
@@ -23,3 +25,4 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>
