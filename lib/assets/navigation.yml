@@ -1,7 +1,8 @@
 Navigation:
   - title: "FUREX"
-    link: "./index.html"
-  - title: "Account"
-    link: "./profile.html"
+    link: "/home/index"
+User:
   - title: "Cart"
-    link: "./people.html"
+    link: ""
+  - title: "Account"
+    link: "profile#item"
