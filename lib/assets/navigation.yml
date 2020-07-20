@@ -1,0 +1,7 @@
+Navigation:
+  - title: "FUREX"
+    link: "./index.html"
+  - title: "Account"
+    link: "./profile.html"
+  - title: "Cart"
+    link: "./people.html"
