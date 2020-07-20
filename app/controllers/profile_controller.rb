@@ -7,4 +7,7 @@ class ProfileController < ApplicationController
     @num_listings = 4
     @item_names = []
   end
+  def addNewItem
+    
+  end
 end
