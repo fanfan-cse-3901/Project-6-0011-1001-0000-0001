@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'items/edit'
   get 'items/remove'
   get 'items/view'
+  # get 'profile/userProfile'
+  get 'userProfile' => 'profile#userProfile'
+
   # File Edited on 07/14/2020 by Yifan Yao: Home initialized, as DocumentRoot
   get 'home/index'
   root to: 'home#index'
