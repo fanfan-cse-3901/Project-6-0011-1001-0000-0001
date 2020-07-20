@@ -1,2 +1,22 @@
-<h1><%= @title %>></h1>
-<p>Find me in app/views/profile/userProfile.html.erb</p>
+<h1><%= @title + " for " +full_name%></h1>
+<div class = "userAttr">
+  <p>Username: <%= @user_name %> </p>
+  <p>Email: <%= @email %></p>
+  <p>Number of Listings: <%= @num_listings %></p>
+
+</div>
+<div class = "newItem">
+  <button type="button">Add New Listing</button>
+</div>
+<div class = "items">
+  <h2>Your Items </h2>
+  <% for i in @num_listings %>
+    <% 5.times do |j| %>
+      <h3>@item_names[i]</h3>
+    <% end %>
+
+
+  <% end %>
+</div>
+
+
