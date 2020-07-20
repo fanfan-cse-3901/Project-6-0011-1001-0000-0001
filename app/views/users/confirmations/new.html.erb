@@ -1,7 +1,8 @@
 <!-- File Edited on 07/19/2020 by Yifan Yao: Insert Bootstrap for better view -->
 <!-- File Edited on 07/20/2020 by Yifan Yao: Make view responsive -->
+<!-- File Edited on 07/20/2020 by Yifan Yao: Adjust Bootstrap settings -->
 <div class="container col-lg-5">
-  <h2 class="pt-5">Resend confirmation instructions</h2>
+  <h2 class="pt-3">Resend confirmation instructions</h2>
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post}) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
     <div class="field form-group">

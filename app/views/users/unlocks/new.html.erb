@@ -1,13 +1,14 @@
 <!-- File Edited on 07/20/2020 by Yifan Yao: Make view responsive -->
+<!-- File Edited on 07/20/2020 by Yifan Yao: Adjust Bootstrap settings -->
 <div class="container col-lg-5">
-  <h2>Resend unlock instructions</h2>
+  <h2 class="pt-3">Resend unlock instructions</h2>
 
   <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: {method: :post}) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control" %>
     </div>
 
     <div class="actions">
