@@ -1,7 +1,10 @@
 <%# File Created on 07/19/2020 by Kevin Dong %>
-<ul id="navigation">
+<ul class="navigation">
   <% nav = YAML.load_file('./lib/assets/navigation.yml')%>
+  <% nav["User"].each do |ele| %>
+    <li id="User"><a href="<%= ele["link"] %>"><%= ele["title"] %></a></li>
+  <% end %>
   <% nav["Navigation"].each do |ele| %>
-    <li><a href="<%= ele["link"] %>"><%= ele["title"] %></a></li>
+    <li id="Navigation"><a href="<%= ele["link"] %>"><%= ele["title"] %></a></li>
   <% end %>
 </ul>

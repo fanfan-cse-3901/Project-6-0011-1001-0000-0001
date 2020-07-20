@@ -1,3 +1,4 @@
+# File Created on
 Rails.application.routes.draw do
   # File Edited on 07/20/2020 by Kevin Dong: Navigation actions initialized
   get 'navigation/filters'
@@ -14,8 +15,7 @@ Rails.application.routes.draw do
   get 'items/remove'
   get 'items/view'
 
-  # get 'profile/userProfile'
-  get 'userProfile' => 'profile#userProfile'
+  get 'profile/userProfile'
 
   # File Edited on 07/14/2020 by Yifan Yao: Home initialized, as DocumentRoot
   get 'home/index'

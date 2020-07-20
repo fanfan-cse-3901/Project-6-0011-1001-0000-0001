@@ -4,5 +4,7 @@ Navigation:
 User:
   - title: "Cart"
     link: ""
-  - title: "Account"
-    link: "profile#item"
+  - title: "Edit Profile"
+    link: "../users/edit"
+  - title: "Profile"
+    link: "../profile/userProfile"
