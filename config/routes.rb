@@ -1,5 +1,6 @@
 # File Created on
 Rails.application.routes.draw do
+  resources :items
   # File Edited on 07/20/2020 by Kevin Dong: Navigation actions initialized
   get 'navigation/filters'
   get 'navigation/search_bar'
@@ -8,12 +9,6 @@ Rails.application.routes.draw do
   get 'profile/modify_profile'
   get 'profile/modify_email'
   get 'profile/modify_pass'
-
-  # File Edited on 07/20/2020 by Yifan Yao: Items initialized
-  get 'items/create'
-  get 'items/edit'
-  get 'items/remove'
-  get 'items/view'
 
   get 'profile/userProfile'
 

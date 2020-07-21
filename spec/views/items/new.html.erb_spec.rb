@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "items/edit", type: :view do
+RSpec.describe "items/new", type: :view do
   before(:each) do
-    @item = assign(:item, Item.create!(
+    assign(:item, Item.new(
       seller_id: 1,
       title: "MyString",
       quality: "MyString",
@@ -16,10 +16,10 @@ RSpec.describe "items/edit", type: :view do
     ))
   end
 
-  it "renders the edit item form" do
+  it "renders new item form" do
     render
 
-    assert_select "form[action=?][method=?]", item_path(@item), "post" do
+    assert_select "form[action=?][method=?]", items_path, "post" do
 
       assert_select "input[name=?]", "item[seller_id]"
 
