@@ -35,3 +35,22 @@
   display: block;
   padding: 0.6111111111em 0.6111111111em;
 }
+/* File Edited on 07/21/2020 by Amanda Cheng: User Profile */
+section {
+  overflow: auto;
+}
+textarea{
+  resize: vertical;
+}
+.center{
+  text-align: left;
+}
+.title{
+  margin-bottom: 0em;
+}
+.center h2{
+  margin-bottom: 1em;
+}
+.newItem {
+  margin-bottom: 3em;
+}
