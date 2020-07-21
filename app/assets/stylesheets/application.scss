@@ -15,23 +15,3 @@
 /* File Edited on 07/14/2020 by Yifan Yao: Import Bootstrap */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
-
-/* File Edited on 07/19/2020 by Kevin Dong: Navigation Bar */
-.navigation {
-  position: relative;
-  overflow: hidden;
-  background-color: purple;
-  display: block;
-}
-
-#Navigation {
-  float: left;
-  display: block;
-  padding: 0.6111111111em 0.6111111111em;
-}
-
-#User {
-  float: right;
-  display: block;
-  padding: 0.6111111111em 0.6111111111em;
-}
