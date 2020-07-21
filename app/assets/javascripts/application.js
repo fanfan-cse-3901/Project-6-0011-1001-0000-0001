@@ -14,7 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-// File Edited on 07/19/2020 by Yifan Yao: Add bootstrap into javaScript
+// File Edited on 07/19/2020 by Yifan Yao: Add Bootstrap into javaScript
 //= require jquery3
 //= require popper
 //= require bootstrap
