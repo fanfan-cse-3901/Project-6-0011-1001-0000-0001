@@ -2,6 +2,7 @@
 <!-- File Edited on 07/20/2020 by Yifan Yao: Make view responsive -->
 <!-- File Edited on 07/20/2020 by Yifan Yao: Adjust Bootstrap settings -->
 <!-- File Edited on 07/20/2020 by Yifan Yao: Emphasis important messages -->
+<!-- File Edited on 07/21/2020 by Yifan Yao: Prevent misunderstood by user -->
 <div class="container col-lg-5">
   <h2 class="pt-3">Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -18,8 +19,9 @@
     <% end %>
 
     <div class="field form-group">
-      <%= f.label :password %> <i class="font-weight-bold">(leave blank if you don't want to change it)</i><br/>
+      <%= f.label :password %><br/>
       <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
+      <small>(leave blank if you don't want to change it)</small>
       <% if @minimum_password_length %>
         <br/>
         <em><%= @minimum_password_length %> characters minimum</em>
@@ -31,8 +33,9 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control" %>
     </div>
 
-    <div class="field form-group">
-      <%= f.label :current_password %> <i class="font-weight-bold">(we need your current password to confirm your changes)</i><br/>
+    <div class="field form-group pt-5">
+      <%= f.label :current_password %>
+      <small class="font-weight-bold">(we need your current password to confirm your changes)</small><br/>
       <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
     </div>
 
