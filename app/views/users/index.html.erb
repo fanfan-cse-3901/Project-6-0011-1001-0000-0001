@@ -1,0 +1,29 @@
+<!-- File Created on 07/22/2020 by Yifan Yao: Create an index for list all users -->
+<div class="container">
+  <h1 class="pt-3">Users</h1>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <!-- <th scope="col">Reset Password Token</th> -->
+        <th scope="col">Reset Token Created On</th>
+        <th scope="col">Created On</th>
+        <th scope="col">Updated On</th>
+      </tr>
+      </thead>
+
+      <tr>
+        <% @users.each do |user| %>
+          <td scope="col"><%= user.id %><br/></td>
+          <td scope="col"><%= user.email %><br/></td>
+          <!-- <td scope="col"><%#= user.reset_password_token %><br/></td> -->
+          <td scope="col"><%= user.reset_password_sent_at.in_time_zone('EST') %><br/></td>
+          <td scope="col"><%= user.created_at.in_time_zone('EST') %><br/></td>
+          <td scope="col"><%= user.updated_at.in_time_zone('EST') %><br/></td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>
