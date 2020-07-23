@@ -18,3 +18,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+// File Edited on 07/22/2020 by Yifan Yao: Add jQuery into javaScript for devise
+//= require jquery
+//= require jquery_ujs
