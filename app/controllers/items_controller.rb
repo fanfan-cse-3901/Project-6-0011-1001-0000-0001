@@ -69,7 +69,8 @@ class ItemsController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
+  # File Edited on 07/23/2020 by Yifan Yao: Change from seller_id to user_id
   def item_params
-    params.require(:item).permit(:seller_id, :title, :quality, :price, :color, :location, :category, :sub_category, :description, :picture)
+    params.require(:item).permit(:user_id, :title, :quality, :price, :color, :location, :category, :sub_category, :description, :picture)
   end
 end
