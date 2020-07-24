@@ -15,3 +15,20 @@
 /* File Edited on 07/14/2020 by Yifan Yao: Import Bootstrap */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+
+/* Created on 07/21/2020 by Kevin Dong */
+.btn-outline-success {
+  color: mediumpurple;
+  border-color: mediumpurple;
+}
+/* Created on 07/21/2020 by Kevin Dong */
+.navbar-brand {
+  color: gold;
+  font-weight: bold;
+  font-style:normal;
+}
+.navbar-brand em {
+  color: mediumpurple;
+  font-weight: bold;
+  font-style:normal;
+}

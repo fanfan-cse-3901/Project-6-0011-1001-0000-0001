@@ -1,5 +1,8 @@
 # File Created on
 Rails.application.routes.draw do
+  get 'navigation/filters'
+  get 'navigation/search'
+  get 'navigation/search_bar'
   resources :items
   # File Edited on 07/20/2020 by Kevin Dong: Navigation actions initialized
   get 'navigation/filters'
