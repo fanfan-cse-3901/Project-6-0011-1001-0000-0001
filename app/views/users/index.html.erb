@@ -1,5 +1,6 @@
 <!-- File Created on 07/22/2020 by Yifan Yao: Create an index for list all users -->
 <!-- File Edited on 07/23/2020 by Yifan Yao: Create placeholders when reset_password_token does not exist -->
+<!-- File Edited on 07/23/2020 by Yifan Yao: Bug fixed for display multiple rows -->
 <div class="container">
   <h1 class="pt-3">Users</h1>
   <div class="table-responsive">
@@ -14,9 +15,8 @@
         <th scope="col">Updated On</th>
       </tr>
       </thead>
-
-      <tr>
-        <% @users.each do |user| %>
+      <% @users.each do |user| %>
+        <tr>
           <td scope="col"><%= user.id %><br/></td>
           <td scope="col"><%= user.email %><br/></td>
           <% unless user.reset_password_token.nil? %>
@@ -26,11 +26,10 @@
             <td scope="col">N/A<br/></td>
             <td scope="col">N/A<br/></td>
           <% end %>
-
           <td scope="col"><%= user.created_at.in_time_zone('EST') %><br/></td>
           <td scope="col"><%= user.updated_at.in_time_zone('EST') %><br/></td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>
