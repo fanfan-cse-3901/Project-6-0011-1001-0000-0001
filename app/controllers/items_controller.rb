@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
-    if @item.user_id != current_user.id
+    if current_user.id != @item.user_id
       flash.now[:danger] = 'Your ID does not match this item'
       render 'show'
     end

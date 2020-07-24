@@ -14,10 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-// File Edited on 07/19/2020 by Yifan Yao: Add Bootstrap into javaScript
+// File Edited on 07/19/2020 by Yifan Yao: Add Bootstrap into JavaScript
 //= require jquery3
 //= require popper
 //= require bootstrap
-// File Edited on 07/22/2020 by Yifan Yao: Add jQuery into javaScript for devise
+// File Edited on 07/22/2020 by Yifan Yao: Add jQuery into JavaScript for devise
 //= require jquery
 //= require jquery_ujs
