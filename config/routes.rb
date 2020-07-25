@@ -1,10 +1,6 @@
-# File Created on
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'navigation/filters'
-  get 'navigation/search'
-  get 'navigation/search_bar'
-  resources :items
+  # File Edited on 07/25/2020 by Yifan Yao: Redirect list of user goes to users
+  get 'users', to: 'users#index'
   # File Edited on 07/20/2020 by Kevin Dong: Navigation actions initialized
   get 'navigation/filters'
   get 'navigation/search_bar'
@@ -13,19 +9,13 @@ Rails.application.routes.draw do
   get 'profile/modify_profile'
   get 'profile/modify_email'
   get 'profile/modify_pass'
-
-
-  get 'profile/userProfile'
-
+  get 'profile/user_profile'
   # File Edited on 07/20/2020 by Yifan Yao: Items initialized
+  resources :items
   get 'items/create'
   get 'items/edit'
   get 'items/remove'
   get 'items/view'
-
-  get 'profile/user_profile'
-
-
   # File Edited on 07/14/2020 by Yifan Yao: Home initialized, as DocumentRoot
   get 'home/index'
   root to: 'home#index'
