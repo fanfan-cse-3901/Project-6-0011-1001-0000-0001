@@ -2,6 +2,7 @@
 # File Edited on 07/25/2020 by Yifan Yao: Replace render to redirect_back for unauthorized user
 # File Edited on 07/25/2020 by Yifan Yao: Complete user authentication
 # File Edited on 07/25/2020 by Yifan Yao: Add roles for Admin
+# File Edited on 07/25/2020 by Yifan Yao: Integrate alert
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -25,8 +26,9 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     if current_user.id != @item.user_id && !current_user.admin
-      flash.now[:danger] = 'Your ID does not match this item'
-      render 'show'
+      respond_to do |format|
+        format.html { redirect_to home_index_url, alert: 'You are not permitted to access this page.' }
+      end
     end
   end
 
