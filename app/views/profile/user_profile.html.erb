@@ -1,0 +1,25 @@
+<!--File Created 07/18/2020 by Amanda Cheng-->
+<!--File Edited 07/20/2020 by Amanda Cheng: Introduced Bootstrap-->
+<div class="center jumbotron">
+  <h2 id="title"><%= @title + " for " + full_name %></h2>
+  <div class="userAttr">
+    <p>Username: <%= @user_name %> </p>
+    <p>Email: <%= @email %></p>
+    <p>Number of Listings: <%= @num_listings %></p>
+  </div>
+
+  <div class="newItem">
+    <%= link_to "Add New Item!", '#', class: "btn btn-sm btn-primary" %>
+  </div>
+  <div class="items">
+    <h3>Your Items</h3>
+    <%# for i in @num_listings %>
+    <%# 5.times do |j| %>
+    <!--      <h3>@item_names[i]</h3>-->
+    <%# end %>
+
+
+    <%# end %>
+  </div>
+
+</div>

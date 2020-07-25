@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   get 'profile/modify_email'
   get 'profile/modify_pass'
 
+
   get 'profile/userProfile'
+
+  # File Edited on 07/20/2020 by Yifan Yao: Items initialized
+  get 'items/create'
+  get 'items/edit'
+  get 'items/remove'
+  get 'items/view'
+
+  get 'profile/user_profile'
+
 
   # File Edited on 07/14/2020 by Yifan Yao: Home initialized, as DocumentRoot
   get 'home/index'

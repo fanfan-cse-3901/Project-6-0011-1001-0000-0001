@@ -7,4 +7,4 @@ User:
   - title: "Edit Profile"
     link: "../users/edit"
   - title: "Profile"
-    link: "../profile/userProfile"
+    link: "../profile/user_profile"
