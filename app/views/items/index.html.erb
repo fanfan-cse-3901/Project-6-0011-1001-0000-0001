@@ -1,5 +1,5 @@
 <!-- File Edited on 07/21/2020 by Yifan Yao: Insert Bootstrap for better view -->
-<!--File Edited on 07/23/2020 by Troy Stein: Bars user access from modifying other people's entries -->
+<!-- File Edited on 07/23/2020 by Troy Stein: Bars user access from modifying other people's entries -->
 <div class="container">
   <h1 class="pt-3">Items</h1>
 
@@ -34,11 +34,11 @@
           <td scope="col"><%= item.sub_category %></td>
           <td scope="col"><%= item.description %></td>
           <td scope="col"><%= item.picture %></td>
-            <td><%= link_to 'Show', item %></td>
-          <%if item.user_id ==  current_user.id %>
+          <td><%= link_to 'Show', item %></td>
+          <% if item.user_id == current_user.id %>
             <td><%= link_to 'Edit', edit_item_path(item) %></td>
             <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-          <%end %>
+          <% end %>
         </tr>
       <% end %>
       </tbody>

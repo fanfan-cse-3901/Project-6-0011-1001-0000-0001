@@ -1,3 +1,6 @@
+# File Edited on 07/23/2020 by Troy Stein: Forbidden edit posts for unauthorized user
+# File Edited on 07/25/2020 by Yifan Yao: Replace render to redirect_back for unauthorized user
+# File Edited on 07/25/2020 by Yifan Yao: Complete user authentication
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -22,7 +25,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if current_user.id != @item.user_id
       flash.now[:danger] = 'Your ID does not match this item'
-      render 'show'
+      redirect_back fallback_location: {action: 'show'}
     end
   end
 
@@ -45,13 +48,15 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+    if current_user.id == @item.user_id
+      respond_to do |format|
+        if @item.update(item_params)
+          format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+          format.json { render :show, status: :ok, location: @item }
+        else
+          format.html { render :edit }
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -59,10 +64,12 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.id == @item.user_id
+      @item.destroy
+      respond_to do |format|
+        format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
