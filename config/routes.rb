@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'profile/user_profile'
   get 'profile/create'
   get 'profile/destroy'
+  get 'profile/new'
   # File Edited on 07/20/2020 by Yifan Yao: Items initialized
   resources :items
   get 'items/create'

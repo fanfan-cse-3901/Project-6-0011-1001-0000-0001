@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
   before_action :user_profile, only: [:show, :edit, :update, :destroy]
   # GET /profile
   def index
-    # @profile = Post.all
+    #@profile = Profile.all
   end
 
   def show
@@ -13,6 +13,7 @@ class ProfileController < ApplicationController
 
   def new
     @item = Profile.new
+
   end
 
   def user_profile
@@ -28,6 +29,7 @@ class ProfileController < ApplicationController
     # p = Profile.new item: 'amanda'
     #
     # p.save
+
     @item = Profile.all
     @num_listings = Profile.count
   end
@@ -49,7 +51,7 @@ class ProfileController < ApplicationController
   end
 
   def destroy
-
+    @profile = Profile.find(params[:id])
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
@@ -58,6 +60,6 @@ class ProfileController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:item)
+    params.permit(:item)
   end
 end
