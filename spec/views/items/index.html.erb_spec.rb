@@ -4,7 +4,6 @@ RSpec.describe "items/index", type: :view do
   before(:each) do
     assign(:items, [
       Item.create!(
-        seller_id: 2,
         title: "Title",
         quality: "Quality",
         price: "9.99",
@@ -16,7 +15,6 @@ RSpec.describe "items/index", type: :view do
         picture: "Picture"
       ),
       Item.create!(
-        seller_id: 2,
         title: "Title",
         quality: "Quality",
         price: "9.99",
@@ -32,7 +30,6 @@ RSpec.describe "items/index", type: :view do
 
   it "renders a list of items" do
     render
-    assert_select "tr>td", text: 2.to_s, count: 2
     assert_select "tr>td", text: "Title".to_s, count: 2
     assert_select "tr>td", text: "Quality".to_s, count: 2
     assert_select "tr>td", text: "9.99".to_s, count: 2

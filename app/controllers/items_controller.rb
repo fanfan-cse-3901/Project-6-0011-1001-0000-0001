@@ -3,6 +3,7 @@
 # File Edited on 07/25/2020 by Yifan Yao: Complete user authentication
 # File Edited on 07/25/2020 by Yifan Yao: Add roles for Admin
 # File Edited on 07/25/2020 by Yifan Yao: Integrate alert
+# File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -37,6 +38,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @item.user_id = current_user.id
 
     respond_to do |format|
       if @item.save
@@ -88,6 +90,6 @@ class ItemsController < ApplicationController
   # File Edited on 07/23/2020 by Yifan Yao: Change from seller_id to user_id
   # File Edited on 07/25/2020 by Kevin Dong: Added search param
   def item_params
-    params.require(:item).permit(:user_id, :title, :quality, :price, :color, :location, :category, :sub_category, :description, :picture, :search)
+    params.require(:item).permit(:title, :quality, :price, :color, :location, :category, :sub_category, :description, :picture, :search)
   end
 end

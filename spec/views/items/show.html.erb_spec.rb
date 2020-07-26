@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "items/show", type: :view do
   before(:each) do
     @item = assign(:item, Item.create!(
-      seller_id: 2,
       title: "Title",
       quality: "Quality",
       price: "9.99",

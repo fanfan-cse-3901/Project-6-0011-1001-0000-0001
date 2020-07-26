@@ -4,18 +4,13 @@
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
       <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
+  <!-- File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller -->
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
