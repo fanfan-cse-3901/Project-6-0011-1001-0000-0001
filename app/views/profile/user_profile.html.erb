@@ -3,28 +3,40 @@
 <div class="center jumbotron">
   <h2 id="title"><%= @title + " for " + full_name %></h2>
   <div class="userAttr">
-    <p>Username: <%= @user_name %> </p>
-    <p>Email: <%= @email %></p>
-    <p>Number of Listings: <%= @num_listings %></p>
+    <div class="d-flex flex-row">
+      <p class="text-primary p-2">Username: </p>
+      <p class= "p-2"><%= @user_name %> </p>
+    </div>
+    <div class="d-flex flex-row">
+      <p class="text-primary p-2">Email: </p>
+      <p class= "p-2"><%= @email %> </p>
+    </div>
+    <div class="d-flex flex-row">
+      <p class="text-primary p-2">Number of Listings: </p>
+      <p class= "p-2"><%= @num_listings %></p>
+    </div>
   </div>
 
   <div class="newItem">
     <%= link_to "Add New Item!", "/profile/new", class: "btn btn-sm btn-primary" %>
   </div>
-  <div class="items">
+
     <h3>Your Items</h3>
-    <% @item.each do |i|%>
+  <div class="d-flex justify-content-between">
+  <% @item.each do |i|%>
     <%# 5.times do |j| %>
 <!--          <h3>@item_names[i]</h3>-->
-      <p><%= i.item %></p>
-      <%= link_to "Edit Item", action: "edit", id: i.id, class: "btn btn-sm btn-primary" %>
-      <%#=form_for(i)%>
-      <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
-      <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?"%>
-    <% end %>
-
+      <div class="item">
+        <p><%= i.item %></p>
+        <%= link_to "Edit Item", action: "edit", id: i.id, class: "btn btn-sm btn-primary" %>
+        <%#=form_for(i)%>
+        <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
+        <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?"%>
+      </div>
+  <% end %>
+  </div>
 
     <%# end %>
-  </div>
+
 
 </div>
