@@ -40,7 +40,8 @@ class ProfileController < ApplicationController
     @item = Profile.new(profile_params)
     if @item.save
       #initially was redirect to profile_path
-      redirect_to '/profile/user/profile'
+      # redirect_to '/profile/user/profile'
+      format.html { redirect_to '/profile/user_profile', notice: 'Item was successfully created.' }
     else
       render 'new'
     end
@@ -54,7 +55,8 @@ class ProfileController < ApplicationController
   def update
     @item = Profile.find(params[:id])
     @item.update(item: params[:profile][:item])
-    redirect_to profile_path(@item)
+    format.html { redirect_to '/profile/user_profile', notice: 'Item was successfully updated.' }
+      # redirect_to '/profile/user_profile'# profile_path(@item)
 
     # respond_to do |format|
     #   if @profile.update(profile_params)
@@ -73,7 +75,7 @@ class ProfileController < ApplicationController
     @profile.destroy
     respond_to do |format|
       #profiles_url
-      format.html { redirect_to '/profile/user_profile', notice: 'Profile was successfully destroyed.' }
+      format.html { redirect_to '/profile/user_profile', notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
