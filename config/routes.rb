@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'profile/destroy'
   get 'profile/new'
   get 'profile/edit'
+  # get 'profile/:id/edit', to: 'profile#edit', as: :edit_profile
+  get 'profile/update'
   # File Edited on 07/20/2020 by Yifan Yao: Items initialized
   resources :items
   get 'items/create'
