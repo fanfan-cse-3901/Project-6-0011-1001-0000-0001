@@ -8,8 +8,9 @@ class ItemsController < ApplicationController
 
   # GET /items
   # GET /items.json
+  # # File Edited on 07/25/2020 by Kevin Dong: Search implementation
   def index
-    @items = Item.all
+    @items = Item.search(params[:search])
   end
 
   # GET /items/1
@@ -85,7 +86,8 @@ class ItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   # File Edited on 07/23/2020 by Yifan Yao: Change from seller_id to user_id
+  # File Edited on 07/25/2020 by Kevin Dong: Added search param
   def item_params
-    params.require(:item).permit(:user_id, :title, :quality, :price, :color, :location, :category, :sub_category, :description, :picture)
+    params.require(:item).permit(:user_id, :title, :quality, :price, :color, :location, :category, :sub_category, :description, :picture, :search)
   end
 end

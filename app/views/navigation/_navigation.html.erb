@@ -1,4 +1,5 @@
 <%# File Created on 07/19/2020 by Kevin Dong %>
+<%# File Edited on 07/25/2020 by Kevin Dong: Change to bootstrap %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/home/index"><em>FUR</em>EX</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,9 +10,9 @@
     <ul class="navbar-nav mr-auto">
 
     </ul>
-
+    <%# Edited on 07/25/2020 by Kevin Dong: search link and signout link %>
     <ul class="navbar-nav mc-auto">
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown input-group-prepend">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
         </a>
@@ -22,10 +23,10 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <%= form_tag items_path, method: 'get', class: 'form-inline my-2 my-lg-0', role: 'search' do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", 'aria-label'=>"Search"%>
+        <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+      <% end %>
     </ul>
 
     <ul class="navbar-nav ml-auto">
@@ -35,6 +36,10 @@
 
       <li class="nav-item">
         <a class="nav-link" href="../users/edit">Edit Account</a>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       </li>
     </ul>
 
