@@ -1,10 +1,10 @@
-<%= link_to '/profile/user_profile', 'profile#user_profile'%>
-<%= form_for @profile do |f| %>
+<%= link_to 'Back to Profile', '/profile/user_profile'%>
+<%= form_for @item do |f| %>
   <p>
     <%= f.label :item %><br>
     <%= f.text_field :item %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Update Changes"%>
   </p>
 <% end %>

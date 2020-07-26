@@ -9,7 +9,7 @@
   </div>
 
   <div class="newItem">
-    <%= link_to "Add New Item!", "profile/new", class: "btn btn-sm btn-primary" %>
+    <%= link_to "Add New Item!", "/profile/new", class: "btn btn-sm btn-primary" %>
   </div>
   <div class="items">
     <h3>Your Items</h3>
@@ -17,10 +17,10 @@
     <%# 5.times do |j| %>
 <!--          <h3>@item_names[i]</h3>-->
       <p><%= i.item %></p>
-      <%#= link_to "Edit Item", '#', class: "btn btn-sm btn-primary" %>
+      <%= link_to "Edit Item", action: "edit", id: i.id, class: "btn btn-sm btn-primary" %>
       <%#=form_for(i)%>
       <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
-      <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, class: "btn btn-sm btn-primary"%>
+      <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?"%>
     <% end %>
 
 
