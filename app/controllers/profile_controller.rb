@@ -17,10 +17,13 @@ class ProfileController < ApplicationController
     @first_name = 'fill'
     @last_name = 'fill'
     @email = 'fill'
-    @num_listings = 4
+
     # item is an array of arrays
     @item = [[]]
-
+    p = Profile.new item: 'amanda'
+    p.save
+    @item = Profile.all
+    @num_listings = Profile.count
   end
 
   # GET /profile/new

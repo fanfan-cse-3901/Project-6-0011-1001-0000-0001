@@ -13,10 +13,12 @@
   </div>
   <div class="items">
     <h3>Your Items</h3>
-    <%# for i in @num_listings %>
+    <% @item.each do |i|%>
     <%# 5.times do |j| %>
-    <!--      <h3>@item_names[i]</h3>-->
-    <%# end %>
+<!--          <h3>@item_names[i]</h3>-->
+      <p><%= i.item %></p>
+      <%= link_to "Edit Item", '#', class: "btn btn-sm btn-primary" %>
+    <% end %>
 
 
     <%# end %>
