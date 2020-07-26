@@ -9,7 +9,7 @@
   </div>
 
   <div class="newItem">
-    <%= link_to "Add New Item!", '#', class: "btn btn-sm btn-primary" %>
+    <%= link_to "Add New Item!", "/profile/create", class: "btn btn-sm btn-primary" %>
   </div>
   <div class="items">
     <h3>Your Items</h3>
@@ -18,6 +18,8 @@
 <!--          <h3>@item_names[i]</h3>-->
       <p><%= i.item %></p>
       <%= link_to "Edit Item", '#', class: "btn btn-sm btn-primary" %>
+      <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
+      <%= link_to "Delete Item",class: "btn btn-sm btn-primary", method: :delete%>
     <% end %>
 
 

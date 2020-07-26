@@ -1,0 +1,10 @@
+<%= link_to '/profile/user_profile', root_path %>
+<%= form_for @profile do |f| %>
+  <p>
+    <%= f.label :item %><br>
+    <%= f.text_field :item %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
