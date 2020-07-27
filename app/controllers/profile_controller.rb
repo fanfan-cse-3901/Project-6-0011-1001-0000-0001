@@ -22,7 +22,7 @@ class ProfileController < ApplicationController
     @user_name = 'fill'
     @first_name = 'fill'
     @last_name = 'fill'
-    @email = 'fill'
+    @email = current_user.email
 
     # item is an array of arrays
     @item = [[]]
