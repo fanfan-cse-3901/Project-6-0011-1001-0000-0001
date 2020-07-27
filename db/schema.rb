@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2020_07_27_004508) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.integer "person_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
@@ -50,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_004508) do
     t.string "category", null: false
     t.string "sub_category", null: false
     t.string "description"
+    t.string "picture", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -89,11 +97,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_004508) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
