@@ -1,0 +1,11 @@
+<%# Partial created 07/26/2020 by Amanda Cheng: Partial for new and edit item %>
+<%= link_to 'Back to Profile', '/profile/user_profile'%>
+<%= form_for @item do |f| %>
+  <p>
+    <%= f.label :item %><br>
+    <%= f.text_field :item %>
+  </p>
+  <p>
+    <%= f.submit "Update Changes"%>
+  </p>
+<% end %>
