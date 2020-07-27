@@ -52,7 +52,9 @@
 
   <p>
     <strong>Picture:</strong>
-    <%= @item.picture %>
+    <% if @item.picture.attached? %>
+    <img src="<%=(url_for(@item.picture)) %>" />
+    <% end %>
   </p>
   <% if @item.user_id == current_user.id || current_user.admin %>
     <%= link_to 'Edit', edit_item_path(@item) %> |
