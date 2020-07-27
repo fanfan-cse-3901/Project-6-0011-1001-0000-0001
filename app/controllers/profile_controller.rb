@@ -49,12 +49,12 @@ class ProfileController < ApplicationController
 
   # GET /profile/1/edit
   def edit
-    @item = Profile.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Profile.find(params[:id])
-    @item.update(item: params[:profile][:item])
+    @item = Item.find(params[:id])
+    @item.update(title: params[:item][:title])
     format.html { redirect_to '/profile/user_profile', notice: 'Item was successfully updated.' }
       # redirect_to '/profile/user_profile'# profile_path(@item)
 
@@ -71,7 +71,7 @@ class ProfileController < ApplicationController
   end
 
   def destroy
-    @profile = Profile.find(params[:id])
+    @profile = Item.find(params[:id])
     @profile.destroy
     respond_to do |format|
       #profiles_url
@@ -81,6 +81,6 @@ class ProfileController < ApplicationController
   end
 
   def profile_params
-    params.permit(:item)
+    params.permit(:title)
   end
 end
