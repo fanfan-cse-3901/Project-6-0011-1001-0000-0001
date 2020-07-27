@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   resources :profiles
   # File Edited on 07/25/2020 by Yifan Yao: Redirect list of user goes to users
   get 'users', to: 'users#index'
-  # File Edited on 07/20/2020 by Kevin Dong: Navigation actions initialized
-  get 'navigation/filters'
-  get 'navigation/search_bar'
-  get 'navigation/search'
+  # File Edited on 07/26/2020 by Kevin Dong: Navigation actions initialized
+  resources :searches
   # File Edited on 07/20/2020 by Kevin Dong: Profile actions initialized
   get 'profile/modify_profile'
   get 'profile/modify_email'

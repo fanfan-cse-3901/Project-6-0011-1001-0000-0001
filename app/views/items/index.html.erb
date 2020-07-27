@@ -3,17 +3,11 @@
 <!-- File Edited on 07/25/2020 by Yifan Yao: Bug fixes for user authentication -->
 <!-- File Edited on 07/25/2020 by Yifan Yao: Add roles for Admin -->
 <!-- File Edited on 07/26/2020 by Kevin Dong: Search filters -->
-<div class="container-fluid">
+<div class="container-fluid bg">
   <div class="row">
     <div class="col-lg-2">
       <h1 class="pt-3">Filters</h1>
-      <%= form_with do %>
-        <div class="field"><%= label_tag :color, "Color" %>: <%= text_field_tag(:color) %></div>
-        <div class="field"><%= label_tag :color, "Quality" %>: <%= text_field_tag(:quality) %></div>
-        <div class="field"><%= label_tag :color, "Price" %>: <%= text_field_tag(:price) %></div>
-        <div class="actions pt-4"><%= submit_tag "Search", class:"btn btn-success" %></div>
-      <% end %>
-
+      <%= render 'filters', item: @item %>
     </div>
     <div class="col-lg">
       <h1 class="pt-3">Items</h1>
