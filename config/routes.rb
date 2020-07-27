@@ -1,3 +1,6 @@
+# File created on 07/13/2020 by Yifan Yao
+# For efficiency
+require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :profiles
   # File Edited on 07/25/2020 by Yifan Yao: Redirect list of user goes to users
@@ -21,6 +24,11 @@ Rails.application.routes.draw do
   get 'items/edit'
   get 'items/remove'
   get 'items/view'
+  # File edited on 07/26/2020 by Prachiti Garge: For conversations and messages
+  resources :conversations do
+    resources :messages
+  end
+
   # File Edited on 07/14/2020 by Yifan Yao: Home initialized, as DocumentRoot
   get 'home/index'
   root to: 'home#index'
