@@ -18,26 +18,26 @@ class ProfileController < ApplicationController
 
   def user_profile
     @title = 'User Profile'
-    @user_attr = ['Username', 'Email', 'Number of Listings']
-    @user_name = 'fill'
-    @first_name = 'fill'
-    @last_name = 'fill'
+    @full_name = current_user.full_name
     @email = current_user.email
 
     # item is an array of arrays
-    @item = [[]]
+    @user_items = []
     # p = Profile.new item: 'amanda'
     #
     # p.save
 
-    @item = Profile.all
-    @num_listings = Profile.count
+    # @item = Items.all
+    # @user_items = Item.find_by(:user_id, conditions =>['user_id =?', user_id])
+    # Get array of items
+    @item = Item.where(:user_id => current_user.id)
+    @num_listings = @item.count
   end
 
   # GET /profile/new
   def create
     # @profile = current_user.profile.build
-    @item = Profile.new(profile_params)
+    @item = Item.new(profile_params)
     if @item.save
       #initially was redirect to profile_path
       # redirect_to '/profile/user/profile'

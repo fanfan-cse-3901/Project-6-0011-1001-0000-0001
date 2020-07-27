@@ -1,43 +1,44 @@
 <!--File Created 07/18/2020 by Amanda Cheng-->
 <!--File Edited 07/20/2020 by Amanda Cheng: Introduced Bootstrap-->
 <!--File Edited 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interfaec-->
+
 <div class="center jumbotron bg">
-  <h2 id="title"><%= @title + " for " + full_name %></h2>
+  <h2 id="title"><%= @title + " for " + @full_name %></h2>
   <div class="userAttr">
-    <div class="d-flex flex-row">
-      <p class="text-primary p-2">Username: </p>
-      <p class= "p-2"><%= @user_name %> </p>
-    </div>
+    <!--    <div class="d-flex flex-row">-->
+    <!--      <p class="text-primary p-2">Username: </p>-->
+    <!--      <p class= "p-2"><%#= @user_name %> </p>-->
+    <!--    </div>-->
     <div class="d-flex flex-row">
       <p class="text-primary p-2">Email: </p>
-      <p class= "p-2"><%= @email %> </p>
+      <p class="p-2"><%= current_user.email %> </p>
     </div>
     <div class="d-flex flex-row">
       <p class="text-primary p-2">Number of Listings: </p>
-      <p class= "p-2"><%= @num_listings %></p>
+      <p class="p-2"><%= @num_listings %></p>
     </div>
   </div>
 
   <div class="newItem">
-    <%= link_to "Add New Item!", "/profile/new", class: "btn btn-sm btn-primary" %>
+    <%= link_to "Add New Item!", new_item_path, class: "btn btn-sm btn-primary" %>
   </div>
 
-    <h3>Your Items</h3>
+  <h3>Your Items</h3>
   <div class="d-flex justify-content-between">
-  <% @item.each do |i|%>
-    <%# 5.times do |j| %>
-<!--          <h3>@item_names[i]</h3>-->
+    <% @item.each do |i| %>
+      <%# 5.times do |j| %>
+      <!--          <h3>@item_names[i]</h3>-->
       <div class="item">
-        <p><%= i.item %></p>
+        <p><%= i.title %></p>
         <%= link_to "Edit Item", action: "edit", id: i.id, class: "btn btn-sm btn-primary" %>
         <%#=form_for(i)%>
         <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
-        <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?"%>
+        <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?" %>
       </div>
-  <% end %>
+    <% end %>
   </div>
 
-    <%# end %>
+  <%# end %>
 
 
 </div>
