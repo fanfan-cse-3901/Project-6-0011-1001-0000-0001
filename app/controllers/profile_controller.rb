@@ -26,7 +26,7 @@ class ProfileController < ApplicationController
 
     # item is an array of arrays
     @item = [[]]
-    # p = Profile.new item: 'amanda'
+    # p = Profile.new item: 'amanda.rb'
     #
     # p.save
 
