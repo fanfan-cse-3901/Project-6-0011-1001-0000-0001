@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def markdown_to_html(text)
-    Kramdown::Document.new(text, input: "GFM").to_html
+    Kramdown::Document.new(text).to_html
   end
 
   def item_author(item)
