@@ -1,3 +1,4 @@
+<!-- File Edited on 07/25/2020 by Kevin Dong: Dropdowns -->
 <%= form_with(model: item, local: true) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation">
@@ -17,8 +18,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :quality %>
-    <%= form.text_field :quality %>
+    <%= form.select :quality, options_for_select(Globals::Filters::QUALITY), :class => "dropdown-menu" %>
   </div>
 
   <div class="field">
@@ -27,13 +27,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
+    <%= form.select :color, options_for_select(Globals::Filters::COLORS) %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.select :location, options_for_select(Globals::Filters::LOCATION) %>
   </div>
 
   <div class="field">
@@ -42,8 +40,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :sub_category %>
-    <%= form.text_field :sub_category %>
+    <%= form.select :sub_category, options_for_select(Globals::Filters::SUB_CAT) %>
   </div>
 
   <div class="field">
@@ -57,6 +54,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class:"btn btn-success" %>
   </div>
 <% end %>

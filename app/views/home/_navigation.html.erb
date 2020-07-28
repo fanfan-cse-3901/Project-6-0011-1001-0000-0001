@@ -14,16 +14,7 @@
       <%# Edited on 07/25/2020 by Kevin Dong: search link and signout link %>
       <ul class="navbar-nav mc-auto">
         <li class="nav-item dropdown input-group-prepend">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
+          <div class="field p-1"><%= select_tag :sub_category, options_for_select(Globals::Filters::SUB_CAT) %></div>
         <%= form_tag items_path, method: 'get', class: 'form-inline my-2 my-lg-0', role: 'search' do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", 'aria-label' => "Search" %>
           <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>

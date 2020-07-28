@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   # GET /items
   # GET /items.json
-  # # File Edited on 07/25/2020 by Kevin Dong: Search implementation
+  # File Edited on 07/25/2020 by Kevin Dong: Search implementation
   def index
     @items = Item.search(params[:search])
   end
