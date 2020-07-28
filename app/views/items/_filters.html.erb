@@ -1,6 +1,7 @@
 <%= form_with(model: search) do |filter| %>
-  <div class="field pt-2"><%= filter.label :color, "Color" %>: <%= text_field_tag(:color) %></div>
-  <div class="field pt-2"><%= filter.label :quality, "Quality" %>: <%= text_field_tag(:quality) %></div>
-  <div class="field pt-2"><%= filter.label :price, "Price" %>: <%= text_field_tag(:price) %></div>
+  <div class="field pt-2"><%= filter.select :color, options_for_select Globals::Filters::COLORS %></div>
+  <div class="field pt-2"><%= filter.label :quality, "Quality" %>: <%= filter.field(:quality) %></div>
+  <div class="field pt-2"><%= filter.label :price, "Price" %>: <%= filter.field(:price) %></div>
+  <div class="field pt-2"><%= filter.select :location, options_for_select Globals::Filters::LOCATION %></div>
   <div class="actions pt-4"><%= filter.submit "Search", class:"btn btn-success" %></div>
 <% end %>
