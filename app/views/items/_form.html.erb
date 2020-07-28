@@ -18,7 +18,7 @@
   </div>
 
   <div class="field">
-    <%= form.select :quality, options_for_select Globals::Filters::QUALITY %>
+    <%= form.select :quality, options_for_select(Globals::Filters::QUALITY), :class => "dropdown-menu" %>
   </div>
 
   <div class="field">
@@ -27,11 +27,11 @@
   </div>
 
   <div class="field">
-    <%= form.select :color, options_for_select Globals::Filters::COLORS %>
+    <%= form.select :color, options_for_select(Globals::Filters::COLORS) %>
   </div>
 
   <div class="field">
-    <%= form.select :location, options_for_select Globals::Filters::LOCATION %>
+    <%= form.select :location, options_for_select(Globals::Filters::LOCATION) %>
   </div>
 
   <div class="field">
@@ -40,7 +40,7 @@
   </div>
 
   <div class="field">
-    <%= form.select :sub_category, options_for_select Globals::Filters::SUB_CAT %>
+    <%= form.select :sub_category, options_for_select(Globals::Filters::SUB_CAT) %>
   </div>
 
   <div class="field">

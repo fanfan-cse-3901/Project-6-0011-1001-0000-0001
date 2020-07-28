@@ -5,7 +5,7 @@
 module Globals
   # Application wide variables
   class Filters
-    SUB_CAT = ['Tables and Desks', 'Couches and Chairs', 'Beanbags', 'Beds and Bedding', 'Patio', 'Tech', 'Other'].freeze
+    SUB_CAT = ['All', 'Tables and Desks', 'Couches and Chairs', 'Beanbags', 'Beds and Bedding', 'Patio', 'Tech', 'Other'].freeze
     COLORS = %w[red blue yellow green orange purple brown pink white black].freeze
     QUALITY = %w[new used old].freeze
     LOCATION = %w[north east south west].freeze
