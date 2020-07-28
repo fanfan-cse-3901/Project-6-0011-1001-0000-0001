@@ -1,6 +1,7 @@
 <!--File Created 07/18/2020 by Amanda Cheng-->
 <!--File Edited 07/20/2020 by Amanda Cheng: Introduced Bootstrap-->
-<!--File Edited 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interfaec-->
+<!--File Edited 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interface-->
+<!--File Edited 07/27/2020 by Amanda Cheng: Updated Bootstrap to align listings-->
 
 <div class="center jumbotron bg">
   <h2 id="title"><%= @title + " for " + @full_name %></h2>
@@ -24,17 +25,35 @@
   </div>
 
   <h3>Your Items</h3>
-  <div class="d-flex justify-content-between">
+  <%numOfCols = 4 %>
+  <%rowCount = 0 %>
+  <div class="h">
     <% @item.each do |i| %>
+      <%# For every number of columns, create new row %>
+      <%if (rowCount % numOfCols == 0)%>
+        <div class="row">
+      <%end  %>
+      <%= rowCount%>
+      <%rowCount= rowCount+1 %>
+
       <%# 5.times do |j| %>
       <!--          <h3>@item_names[i]</h3>-->
-      <div class="item">
+      <div class="col">
+        <div>
         <p><%= i.title %></p>
-        <%= link_to "Edit Item", action: "edit", id: i.id, class: "btn btn-sm btn-primary" %>
+<!--          <div class="thumbnail">-->
+<!--            <img src="<%#=(url_for(i.picture)) %>" alt= i.title/>-->
+<!--          </div>-->
+          <p><%= link_to "Edit Item", action: "edit", id: i.id, class: "btn btn-sm btn-primary" %> <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?" %></p>
         <%#=form_for(i)%>
         <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
-        <%= link_to "Delete Item", action: "destroy", id: i.id, :method => :delete, confirm: "Are you sure?" %>
+
+        </div>
       </div>
+      <%if (rowCount % numOfCols == 0)%>
+        </div>
+      <%end  %>
+
     <% end %>
   </div>
 
