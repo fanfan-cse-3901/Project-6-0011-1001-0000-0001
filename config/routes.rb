@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-
   # File Edited on 07/14/2020 by Yifan Yao: Home initialized, as DocumentRoot
   get 'home/index'
   root to: 'home#index'
