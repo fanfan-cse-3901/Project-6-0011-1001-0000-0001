@@ -1,4 +1,5 @@
-<h1 class="title is-4">Message <%= @conversation.receiver.full_name %></h1>
+<!-- File created on 07/28/2020 by Prachiti Garge -->
+<h1 class="title is-4">Message Seller</h1>
 
 <% if @over_ten %>
   <%= link_to "Show previous", '?m=all', class:'button is-link' %>
@@ -10,7 +11,6 @@
       <% user = User.find(message.user_id) %>
       <article class="message is-dark">
         <div class="message-body">
-          <div class="inline-block nudge-down-10 pr2"><%= gravatar_for user, size: 32 %></div>
           <div class="inline-block"><strong><%= user.full_name %></strong> <%= message.message_time %></div>
           <div class="block pt4">
             <div class="f4"><%= sanitize markdown_to_html(message.body) %></div>
