@@ -11,7 +11,12 @@ class ItemsController < ApplicationController
   # GET /items.json
   # File Edited on 07/25/2020 by Kevin Dong: Search implementation
   def index
-    @items = Item.search(params[:search], params[:sub_category])
+    if params[:search]
+      @items = Item.where('title LIKE ?', "%#{params[:search]}%")
+      @items = Item.where('sub_category LIKE ?', params[:sub_category]) if params[:sub_category] != 'All'
+    else
+      @items = all
+    end
   end
 
   # GET /items/1
