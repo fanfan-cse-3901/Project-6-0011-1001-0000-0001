@@ -29,22 +29,22 @@
 
 ### Setup
 
+#### Something You Might Need To Know
+
+* Ruby Version: `ruby-2.6.3`
+
 #### Step 1: Install Dependencies
 
 ```
-# Debian/Ubuntu
 $ gem install bundler
-$ sudo apt install g++ libxrandr-dev libfox-1.6-dev
-```
-
-#### Step 2: Install Gem Packages
-
-```
-# Debian/Ubuntu
 $ bundle install
 ```
 
-#### Step 3: Compile the code
+#### Step 3: Create the Database
+
+`$ rails db:migrate`
+
+#### Step 4: Run Server From Local
 
 ```
 # Run rails server
@@ -52,5 +52,17 @@ $ rails server
 # Type localhost:3000 in the browser and go.
 ```
 
-#### :beers: Step 4: Enjoy :beers:
+#### Step 5: Create an User and Set it as admin
+
+1. Create Your First Account From [http://localhost:3000/users/sign_up](http://localhost:3000/users/sign_up)
+2. Run `$ rake promote_admin`
+
+Instructions for Post Installation:
+
+```
+View List of Users (Priviliged): http://localhost:3000/users
+Add New Admins (Priviliged): http://localhost:3000/users/add_admin
+```
+
+#### :beers: Step 6: Enjoy :beers:
 
