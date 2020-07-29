@@ -1,11 +1,11 @@
 class SearchesController < ApplicationController
-  def new
+  def index
     @search = Search.new
-    @items = Item.all
+    @items = Search.search_items(params)
   end
 
   def create
-    @search = Search.create(search_params)
+    @items = Search.create(search_params)
     redirect_to @search
   end
 

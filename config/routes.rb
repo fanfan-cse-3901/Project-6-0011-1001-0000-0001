@@ -2,7 +2,6 @@
 # For efficiency
 require 'sidekiq/web'
 Rails.application.routes.draw do
-  resources :profiles
   # File Edited on 07/25/2020 by Yifan Yao: Redirect list of user goes to users
   get 'users', to: 'users#index'
   # File Edited on 07/26/2020 by Kevin Dong: Navigation actions initialized

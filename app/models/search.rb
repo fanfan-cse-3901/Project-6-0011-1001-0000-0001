@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-# search
 class Search < ApplicationRecord
-  # search items
-  def search_items
+  def self.search_items(params)
     items = Item.all
-    items = items.where(['sub_category LIKE ?', sub_category]) if sub_category.present?
-    items = items.where(['title LIKE ?', "%#{keywords}%"]) if keywords.present?
-    items = items.where(['color LIKE ?', color]) if color.present?
-    items = items.where(['quality LIKE ?', quality]) if quality.present?
-    items = items.where(['price LIKE ?', price]) if price.present?
-    items = items.where(['location LIKE ?', location]) if location.present?
+    items = items.where('title LIKE ?', "%#{params[:keywords]}%") if params[:keywords].present?
+    items = items.where('color LIKE ?', params[:color]) if params[:color].present?
+    items = items.where('quality LIKE ?', params[:quality]) if params[:quality].present?
+    items = items.where('price LIKE ?', params[:price]) if params[:price].present?
+    items = items.where('location LIKE ?', params[:location]) if params[:location].present?
     items
   end
 end
