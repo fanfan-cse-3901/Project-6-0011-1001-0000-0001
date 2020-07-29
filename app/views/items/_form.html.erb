@@ -20,7 +20,7 @@
 
   <div class="field py-1">
     <%= form.label :quality %>:
-    <%= form.select :quality, options_for_select(Globals::Filters::QUALITY, item.quality)%>
+    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality)%>
   </div>
 
   <div class="field py-1">
@@ -30,17 +30,17 @@
 
   <div class="field py-1">
     <%= form.label :color %>:
-    <%= form.select :color, options_for_select(Globals::Filters::COLORS, item.color) %>
+    <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color) %>
   </div>
 
   <div class="field py-1">
     <%= form.label :location %>:
-    <%= form.select :location, options_for_select(Globals::Filters::LOCATION, item.location) %>
+    <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location) %>
   </div>
 
   <div class="field py-1">
     <%= form.label :sub_category %>:
-    <%= form.select :sub_category, options_for_select(Globals::Filters::SUB_CAT, item.sub_category) %>
+    <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category) %>
   </div>
 
   <div class="field py-1">

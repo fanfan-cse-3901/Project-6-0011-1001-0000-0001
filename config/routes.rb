@@ -1,4 +1,5 @@
 # File created on 07/13/2020 by Yifan Yao
+# Edited on 07/28/2020 by Kevin Dong: Refactoring
 # For efficiency
 require 'sidekiq/web'
 Rails.application.routes.draw do

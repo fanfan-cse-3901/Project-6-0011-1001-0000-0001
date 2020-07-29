@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+# File created by Kevin Dong
+# Handles advanced search features
 class SearchesController < ApplicationController
   def index
-    @search = Search.new
     items = Item.all
     items = items.where('title LIKE ?', "%#{params[:keywords]}%") if params[:keywords] != ''
     items = items.where('color LIKE ?', params[:color]) if params[:color] != 'All'

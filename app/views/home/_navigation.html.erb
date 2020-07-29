@@ -1,5 +1,6 @@
 <%# File Created on 07/19/2020 by Kevin Dong %>
 <%# File Edited on 07/25/2020 by Kevin Dong: Change to bootstrap %>
+<%# File Edited on 07/28/2020 by Kevin Dong: Refactored and formatting styling %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" xmlns:class="http://www.w3.org/1999/xhtml">
   <a class="navbar-brand" href="/home/index"><em>FUR</em>EX</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,22 +10,23 @@
   <% if user_signed_in? %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-
       </ul>
       <%# Edited on 07/25/2020 by Kevin Dong: search link and signout link %>
       <ul class="navbar-nav mc-auto">
-        <%= form_tag items_path, method: 'get', class: 'form-inline my-2 my-lg-0', role: 'search' do %>
-          <%= select_tag :sub_category, options_for_select(Globals::Filters::SUB_CAT), :style => "min-height: 106%; padding: 2px 0; text-align: center" %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", 'aria-label' => "Search" %>
-          <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
-          <div class="px-1"></div>
+        <% unless current_page? searches_path %>
+          <%= form_tag items_path, method: 'get', class: 'form-inline my-2 my-lg-0', role: 'search' do %>
+            <%= select_tag :sub_category, options_for_select(Globals::Filters::SUB_CAT), :style => "min-height: 106%; padding: 2px 0; text-align: center" %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", 'aria-label' => "Search" %>
+            <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+            <div class="px-1"></div>
+          <% end %>
           <%= link_to "Advanced Search", searches_path, class: "btn btn-primary" %>
         <% end %>
       </ul>
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <%= link_to "Profile", profile_user_profile_url, class: "nav-link" %>
+          <%= link_to "Account", profile_user_profile_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item">
