@@ -18,12 +18,11 @@
     <div class="col-lg-4">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Seller: <%= @item.user.full_name %></li>
-        <li class="list-group-item">Quality: <%= @item.quality %></li>
+        <li class="list-group-item">Quality: <%= number_to_currency(@item.quality) %></li>
         <li class="list-group-item">Price: <%= @item.price %></li>
         <li class="list-group-item">Color: <%= @item.color %></li>
         <li class="list-group-item">Location: <%= @item.location %></li>
-        <li class="list-group-item">Category: <%= @item.category %></li>
-        <li class="list-group-item">Sub category: <%= @item.sub_category %></li>
+        <li class="list-group-item">Sub Category: <%= @item.sub_category %></li>
         <li class="list-group-item">Description: <%= @item.description %></li>
       </ul>
 

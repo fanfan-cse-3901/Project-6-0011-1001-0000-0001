@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   get 'searches/index'
   # File Edited on 07/20/2020 by Kevin Dong: Profile actions initialized
   # File Edited on 07/20/2020 by Amanda Cheng: Added more profile actions
-  get 'profile/modify_profile'
-  get 'profile/modify_email'
-  get 'profile/modify_pass'
   get 'profile/user_profile'
   get 'profile/create'
   get 'profile/destroy'

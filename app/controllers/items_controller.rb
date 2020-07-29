@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
       @items = Item.where('title LIKE ?', "%#{params[:search]}%")
       @items = Item.where('sub_category LIKE ?', params[:sub_category]) if params[:sub_category] != 'All'
     else
-      @items = all
+      @items = Item.all
     end
   end
 

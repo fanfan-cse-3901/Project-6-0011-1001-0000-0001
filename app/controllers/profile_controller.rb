@@ -50,6 +50,7 @@ class ProfileController < ApplicationController
   # GET /profile/1/edit
   def edit
     @item = Item.find(params[:id])
+    render 'items/edit'
   end
 
   def update

@@ -16,9 +16,11 @@
 /* File Edited on 07/25/2020 by Yifan Yao: Refactor stylesheet */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+
 html, .bg {
   background-color: white;
 }
+
 /* Created on 07/21/2020 by Kevin Dong */
 .btn-outline-success {
   color: mediumpurple;
@@ -42,6 +44,18 @@ html, .bg {
 .btn-success:hover {
   border-color: rebeccapurple;
   background-color: rebeccapurple;
+}
+
+/* Created on 07/27/2020 by Kevin Dong */
+.btn-primary {
+  border-color: goldenrod;
+  background-color: goldenrod;
+}
+
+/* Created on 07/27/2020 by Kevin Dong */
+.btn-primary:hover {
+  border-color: darkgoldenrod;
+  background-color: darkgoldenrod;
 }
 
 /* Created on 07/21/2020 by Kevin Dong */
@@ -68,7 +82,7 @@ em {
 /* Created on 07/26/2020 by Kevin Dong */
 .carousel-inner {
   margin: auto;
-  width: 70%;
+  width: 640px;
 }
 
 /* Created on 07/26/2020 by Kevin Dong */
@@ -106,29 +120,23 @@ textarea {
   margin-bottom: 3em;
 }
 
-/* File Edited 07/27/2020 by Amanda Cheng: User Profile */
-.thumbnail{
-  width: 100%;
-  height: 100%;
-
-}
 
 /* File Edited 07/27/2020 by Amanda Cheng: User Profile */
-.thumbnail img{
+/* File Edited 07/27/2020 by Kevin Dong: User Profile better */
+.thumbnail img {
   border: 1px solid #ddd;
   border-radius: 4px;
-  width: 300px;
   height: 300px;
-  //display: block;
+  margin: auto;
 }
 
 /* File Edited 07/27/2020 by Amanda Cheng: User Profile */
-.thumbnail img:hover{
-  box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+.thumbnail img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
 /* File Edited 07/27/2020 by Amanda Cheng: User Profile */
-.item_title{
+.item_title {
   font-weight: bolder;
   color: mediumpurple;
   font-color: mediumpurple;

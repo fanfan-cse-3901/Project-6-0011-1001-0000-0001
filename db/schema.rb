@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_004508) do
     t.decimal "price", null: false
     t.string "color", null: false
     t.string "location", null: false
-    t.string "category", null: false
     t.string "sub_category", null: false
     t.string "description"
     t.datetime "created_at", null: false
@@ -63,13 +62,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_004508) do
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.string "item"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|

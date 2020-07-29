@@ -11,6 +11,7 @@
     <table class="table">
       <thead>
       <tr>
+        <th scope="col">Picture</th>
         <th scope="col">Seller</th>
         <th scope="col">Title</th>
         <th scope="col">Quality</th>
@@ -18,35 +19,36 @@
         <th scope="col">Color</th>
         <th scope="col">Location</th>
         <th scope="col">Category</th>
-        <th scope="col">Sub category</th>
-        <th scope="col">Description</th>
         <th colspan="3" scope="col">Operations</th>
       </tr>
       </thead>
 
-          <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td scope="col"><%= item.user_id %></td>
-              <td scope="col"><%= item.title %></td>
-              <td scope="col"><%= item.quality %></td>
-              <td scope="col"><%= item.price %></td>
-              <td scope="col"><%= item.color %></td>
-              <td scope="col"><%= item.location %></td>
-              <td scope="col"><%= item.category %></td>
-              <td scope="col"><%= item.sub_category %></td>
-              <td scope="col"><%= item.description %></td>
-              <td><%= link_to 'Show', item %></td>
-              <% if item.user_id == current_user.id || current_user.admin %>
-                <td><%= link_to 'Edit', edit_item_path(item) %></td>
-                <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-              <% else %>
-                <td></td>
-                <td></td>
-              <% end %>
-            </tr>
+      <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td scope="col">
+            <% if item.picture.attached? %>
+              <img src="<%= (url_for(item.picture)) %>" class="w-75"/>
+            <% else %>
+              <h3>No Image attached</h3>
+            <% end %></td>
+          <td scope="col"><%= item.user_id %></td>
+          <td scope="col"><%= item.title %></td>
+          <td scope="col"><%= item.quality %></td>
+          <td scope="col"><%= number_to_currency(item.price) %></td>
+          <td scope="col"><%= item.color %></td>
+          <td scope="col"><%= item.sub_category %></td>
+          <td><%= link_to 'Show', item %></td>
+          <% if item.user_id == current_user.id || current_user.admin %>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
+            <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% else %>
+            <td></td>
+            <td></td>
           <% end %>
         </tr>
+      <% end %>
+      </tr>
       </tbody>
     </table>
   </div>
@@ -55,4 +57,3 @@
 
   <%= link_to 'New Item', new_item_path %>
 </div>
-

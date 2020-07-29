@@ -7,7 +7,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.decimal :price, null: false
       t.string :color, null: false
       t.string :location, null: false
-      t.string :category, null: false
       t.string :sub_category, null: false
       t.string :description
 
