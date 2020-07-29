@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
   def new
-    @search = Search.search_items
+    @search = Search.new
+    @items = Item.all
   end
 
   def create

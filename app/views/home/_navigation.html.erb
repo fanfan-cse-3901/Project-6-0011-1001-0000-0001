@@ -13,8 +13,8 @@
       </ul>
       <%# Edited on 07/25/2020 by Kevin Dong: search link and signout link %>
       <ul class="navbar-nav mc-auto">
-        <li class="nav-item dropdown input-group-prepend">
-          <div class="field p-1"><%= select_tag :sub_category, options_for_select(Globals::Filters::SUB_CAT) %></div>
+            <div class="field p-1"><%= select_tag :sub_category, options_for_select(Globals::Filters::SUB_CAT) %></div>
+            <%= link_to "Advanced Search", new_search_path, size: 10 %>
         <%= form_tag items_path, method: 'get', class: 'form-inline my-2 my-lg-0', role: 'search' do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", 'aria-label' => "Search" %>
           <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
