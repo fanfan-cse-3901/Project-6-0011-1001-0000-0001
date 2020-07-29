@@ -2,7 +2,7 @@
 <div class="container">
   <h1 class="pt-3">Current Admins</h1>
 
-  <%= render 'user', @user %>
+  <%= render 'users/shared/list_users', @user %>
 
   <%= form_tag(users_set_admin_path, :method => "put") do |form| %>
     <div class="field">
