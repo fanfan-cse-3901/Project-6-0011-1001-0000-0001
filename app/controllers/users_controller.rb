@@ -1,6 +1,7 @@
 # File Edited on 07/25/2020 by Yifan Yao: Restrict general user to access index
 # File Edited on 07/25/2020 by Yifan Yao: Integrate alert
 # File Edited on 07/29/2020 by Yifan Yao: Add admin panel
+# File Edited on 07/29/2020 by Yifan Yao: Refactor codes
 class UsersController < ApplicationController
   def index
     if current_user.admin
@@ -25,16 +26,18 @@ class UsersController < ApplicationController
   def set_admin
     if current_user.admin
       @future_admin = User.find_by email: params[:email]
-      @future_admin.admin = true
-      @future_admin.save
-
-      respond_to do |format|
-        if @future_admin.update(admin_params)
-          format.html { redirect_to users_add_admin_path, notice: 'User was successfully updated.' }
-          format.json { render :show, status: :ok, location: @item }
-        else
-          format.html { render :edit }
-          format.json { render json: users_add_admin_path, status: :unprocessable_entity }
+      if !@future_admin.nil?
+        @future_admin.update(admin: true)
+        respond_to do |format|
+          if @future_admin.update(admin_params)
+            format.html { redirect_to users_add_admin_path, notice: 'User was successfully updated.' }
+            format.json { render json: @future_admin, status: :ok }
+          end
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to users_add_admin_path, alert: 'User cannot be updated.' }
+          format.json { render json: @future_admin, status: :unprocessable_entity }
         end
       end
     else

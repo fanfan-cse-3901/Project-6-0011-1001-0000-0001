@@ -1,8 +1,9 @@
 <!-- File Edited on 07/25/2020 by Kevin Dong: Dropdowns -->
+<!-- File Edited on 07/29/2020 by Yifan Yao: Insert Bootstrap into error messages -->
 <%= form_with(model: item, local: true) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation py-1">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <p class="alert alert-warning"><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</p>
 
       <ul>
         <% item.errors.full_messages.each do |message| %>

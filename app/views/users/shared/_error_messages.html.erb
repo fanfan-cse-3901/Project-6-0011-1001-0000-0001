@@ -1,11 +1,12 @@
+<!-- File Edited on 07/29/2020 by Yifan Yao: Insert Bootstrap into error messages -->
 <% if resource.errors.any? %>
   <div id="error_explanation">
-    <h2>
+    <p class="alert alert-warning">
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
        %>
-    </h2>
+    </p>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
