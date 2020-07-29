@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# File Edited on 07/29/2020 by Yifan Yao: Only OSU email will be accepted
 
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
@@ -183,7 +184,8 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  # config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  config.email_regexp = /[a-zA-Z]+\.[1-9]\d*@osu\.edu/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this

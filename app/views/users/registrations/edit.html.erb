@@ -3,8 +3,11 @@
 <!-- File Edited on 07/20/2020 by Yifan Yao: Adjust Bootstrap settings -->
 <!-- File Edited on 07/20/2020 by Yifan Yao: Emphasis important messages -->
 <!-- File Edited on 07/21/2020 by Yifan Yao: Prevent misunderstood by user -->
+<!-- File Edited on 07/29/2020 by Yifan Yao: Only OSU email will be accepted -->
 <div class="container col-lg-5 bg">
   <h2 class="pt-3">Edit <%= resource_name.to_s.humanize %></h2>
+
+  <p class="alert alert-warning">Only OSU Email(name.#@osu.edu) will be accepted</p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
