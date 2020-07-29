@@ -7,14 +7,14 @@ module Globals
   class Filters
     SUB_CAT = ['All', 'Tables and Desks', 'Couches and Chairs', 'Beds and Bedding', 'Patio', 'Tech', 'Other'].freeze
     COLORS = %w[All Red Blue Yellow Green Orange Purple Brown Pink White Black].freeze
-    QUALITY = %w[All New Like-New Used Acceptable Other].freeze
+    QUALITY = %w[All New Like-New Used Acceptable Poor].freeze
     LOCATION = %w[All North East South West Other].freeze
   end
 
   class Items
     SUB_CAT = ['Tables and Desks', 'Couches and Chairs', 'Beds and Bedding', 'Patio', 'Tech', 'Other'].freeze
     COLORS = %w[Red Blue Yellow Green Orange Purple Brown Pink White Black].freeze
-    QUALITY = %w[New Like-New Used Acceptable Other].freeze
+    QUALITY = %w[New Like-New Used Acceptable Poor].freeze
     LOCATION = %w[North East South West Other].freeze
   end
 end

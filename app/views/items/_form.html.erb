@@ -13,34 +13,34 @@
     </div>
   <% end %>
   <!-- File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller -->
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :title %>:
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :required => true%>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :quality %>:
-    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality)%>
+    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality), :required => true%>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :price %>
-    <%= form.number_field :price, in: 0...999, step: 0.01 %>
+    <%= form.number_field :price, in: 0...999, step: 0.01, :required => true %>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :color %>:
-    <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color) %>
+    <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color), :required => true %>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :location %>:
-    <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location) %>
+    <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location), :required => true %>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :sub_category %>:
-    <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category) %>
+    <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category), :required => true %>
   </div>
 
   <div class="field py-1">
@@ -49,9 +49,9 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 required">
     <%= form.label :picture %>
-    <%= form.file_field :picture %>
+    <%= form.file_field :picture, :required => true%>
   </div>
 
   <div class="actions py-1">
