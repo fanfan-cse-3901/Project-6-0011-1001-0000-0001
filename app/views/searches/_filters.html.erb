@@ -1,3 +1,5 @@
+<!-- File Created on 07/25/2020 by Kevin Dong: filters for advanced search -->
+<!-- File Edited on 07/28/2020 by Kevin Dong: Refactored for different form method-->
 <%= form_tag searches_path, method: 'get' do %>
   <div class="field pt-2">
     <%= label_tag :keywords %>:
@@ -26,5 +28,6 @@
 
   <div class="actions pt-4">
     <%= submit_tag "Search", class: "btn btn-success" %>
+    <%= link_to "Return", home_index_path, class: "btn btn-primary my-2 my-sm-0" %>
   </div>
 <% end %>

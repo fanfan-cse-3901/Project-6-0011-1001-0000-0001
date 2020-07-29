@@ -4,6 +4,7 @@
 <!-- File Edited on 07/25/2020 by Yifan Yao: Add roles for Admin -->
 <!-- File Edited on 07/27/2020 by Prachiti Garge: Added the chat section -->
 <!-- File Edited on 07/27/2020 by Yifan Yao: Split information into two column -->
+<!-- File Edited on 07/28/2020 by Kevin Dong: Refactored code, formatting -->
 <div class="container">
   <h1 class="pt-3"><%= @item.title %></h1>
   <div class="row">
@@ -18,8 +19,8 @@
     <div class="col-lg-4">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Seller: <%= @item.user.full_name %></li>
-        <li class="list-group-item">Quality: <%= number_to_currency(@item.quality) %></li>
-        <li class="list-group-item">Price: <%= @item.price %></li>
+        <li class="list-group-item">Quality: <%= @item.quality %></li>
+        <li class="list-group-item">Price: <%= number_to_currency(@item.price) %></li>
         <li class="list-group-item">Color: <%= @item.color %></li>
         <li class="list-group-item">Location: <%= @item.location %></li>
         <li class="list-group-item">Sub Category: <%= @item.sub_category %></li>

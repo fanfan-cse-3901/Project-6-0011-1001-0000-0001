@@ -4,6 +4,7 @@
 # File Edited on 07/25/2020 by Yifan Yao: Add roles for Admin
 # File Edited on 07/25/2020 by Yifan Yao: Integrate alert
 # File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller
+# File Edited on 07/28/2020 by Kevin Dong: Refactored
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 

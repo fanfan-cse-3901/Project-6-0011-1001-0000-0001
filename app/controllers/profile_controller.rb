@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 # File created 07/18/2020 by Amanda Cheng
 # File edited 07/20/2020 by Amanda Cheng: Refactored method naming convention to fit snake case
+# File Edited on 07/28/2020 by Kevin Dong: Refactored
 class ProfileController < ApplicationController
   before_action :user_profile, only: [:show, :edit, :update, :destroy]
   # GET /profile
