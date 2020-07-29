@@ -4,3 +4,8 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+# File Edited on 07/27/2020 by Yifan Yao: Set first user as admin
+task :promote_admin => :environment do
+  User.first.update_attribute('admin', true)
+end
