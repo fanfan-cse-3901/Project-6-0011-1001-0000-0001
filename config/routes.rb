@@ -4,8 +4,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   # File Edited on 07/25/2020 by Yifan Yao: Redirect list of user goes to users
   get 'users', to: 'users#index'
-  # File Edited on 07/26/2020 by Kevin Dong: Navigation actions initialized
+  # File Edited on 07/26/2020 by Kevin Dong: Search initialized
   resources :searches
+  get 'searches/index'
   # File Edited on 07/20/2020 by Kevin Dong: Profile actions initialized
   get 'profile/modify_profile'
   get 'profile/modify_email'

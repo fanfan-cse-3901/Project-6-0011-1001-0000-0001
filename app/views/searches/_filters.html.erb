@@ -1,27 +1,30 @@
-<%= form_with(model: search, method: 'post') do |filter| %>
+<%= form_tag searches_path, method: 'get' do %>
   <div class="field pt-2">
-    <%= filter.label :keywords%>:
-    <%= filter.text_field(:keywords) %>
-  </div>
-  <div class="field pt-2">
-    <%= filter.label :color %>:
-    <%= filter.select :color, options_for_select(Globals::Filters::COLORS) %>
+    <%= label_tag :keywords %>:
+    <%= text_field_tag :keywords %>
   </div>
 
   <div class="field pt-2">
-    <%= filter.label :quality %>:
-    <%= filter.select :quality, options_for_select(Globals::Filters::QUALITY) %>
+    <%= label_tag :color %>:
+    <%= select_tag :color, options_for_select(Globals::Filters::COLORS) %>
   </div>
 
   <div class="field pt-2">
-    <%= filter.label :price %>:
-    <%= filter.text_field(:price) %>
+    <%= label_tag :quality %>:
+    <%= select_tag :quality, options_for_select(Globals::Filters::QUALITY) %>
   </div>
+
   <div class="field pt-2">
-    <%= filter.label :location %>:
-    <%= filter.select :location, options_for_select(Globals::Filters::LOCATION) %>
+    <%= label_tag :price %>:
+    <%= text_field_tag :price %>
   </div>
+
+  <div class="field pt-2">
+    <%= label_tag :location %>:
+    <%= select_tag :location, options_for_select(Globals::Filters::LOCATION) %>
+  </div>
+
   <div class="actions pt-4">
-    <%= filter.submit "Search", class: "btn btn-success" %>
+    <%= submit_tag "Search", class: "btn btn-success" %>
   </div>
 <% end %>

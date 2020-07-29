@@ -4,15 +4,6 @@ class SearchesController < ApplicationController
     @items = Search.search_items(params)
   end
 
-  def create
-    @items = Search.create(search_params)
-    redirect_to @search
-  end
-
-  def show
-    @search = Search.find(params[:id])
-  end
-
   private
 
   def search_params
