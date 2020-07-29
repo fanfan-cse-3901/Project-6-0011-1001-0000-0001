@@ -44,7 +44,7 @@
             <h3>No Image attached</h3>
           <% end %>
 
-          <div><%= link_to "Show Item", i %> | Sell Item | <%= link_to "Edit Item", edit_item_path(i) %> | <%= link_to "Delete Item", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
+          <div><%= link_to "Show Item", i %> | <%= link_to "Sell Item", new_transaction_path(item: i) %> | <%= link_to "Edit Item", edit_item_path(i) %> | <%= link_to "Delete Item", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
         <%#=Another way to show delete button%>
         <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
         </div>

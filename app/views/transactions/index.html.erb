@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="pt-3">Transactions</h1>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Item</th>
+        <th>Seller ID</th>
+        <th>Seller Name</th>
+        <th>Purchaser ID</th>
+        <th>Purchaser Name</th>
+        <th>Rating</th>
+        <th colspan="3">Operations</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.item_id %></td>
+          <td><%= transaction.item.title %></td>
+          <td><%= transaction.item.user_id %></td>
+          <td><%= transaction.item.user.full_name %></td>
+          <td><%= transaction.user_id %></td>
+          <td><%= transaction.user.full_name %></td>
+          <td><%= transaction.rating %></td>
+          <td><%= link_to 'Show', transaction %></td>
+          <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+          <td><%= link_to 'Destroy', transaction, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <%= link_to 'New Transaction', new_transaction_path %>
+</div>

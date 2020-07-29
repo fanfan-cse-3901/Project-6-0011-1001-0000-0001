@@ -3,4 +3,7 @@ class Item < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   has_one_attached :picture, dependent: :destroy
+
+  has_many :transactions
+  has_many :users, through: :transactions
 end
