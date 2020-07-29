@@ -31,13 +31,11 @@ class UsersController < ApplicationController
         respond_to do |format|
           if @future_admin.update(admin_params)
             format.html { redirect_to users_add_admin_path, notice: 'User was successfully updated.' }
-            format.json { render json: @future_admin, status: :ok }
           end
         end
       else
         respond_to do |format|
           format.html { redirect_to users_add_admin_path, alert: 'User cannot be updated.' }
-          format.json { render json: @future_admin, status: :unprocessable_entity }
         end
       end
     else

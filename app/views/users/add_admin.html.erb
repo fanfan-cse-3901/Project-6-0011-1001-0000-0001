@@ -4,7 +4,7 @@
 
   <%= render 'users/shared/list_users', @user %>
 
-  <%= form_tag(users_set_admin_path, :method => "put") do |form| %>
+  <%= form_tag(users_set_admin_path, :method => "put") do %>
     <div class="field">
       <%= label_tag(:email, "Email: ") %>
       <%= text_field_tag :email, '', class: 'form-control w-25' %>
