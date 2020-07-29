@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Email</th>
+      <th scope="col">Name</th>
+      <th scope="col">Last Sign-in IP</th>
+      <th scope="col">Last Sign-in At</th>
+      <th scope="col">Membership Since</th>
+      <th scope="col">Admin</th>
+    </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tr>
+        <td scope="col"><%= user.id %><br/></td>
+        <td scope="col"><%= user.email %><br/></td>
+        <td scope="col"><%= user.full_name %><br/></td>
+        <td scope="col"><%= user.last_sign_in_ip %><br/></td>
+        <td scope="col"><%= user.last_sign_in_at.in_time_zone('EST') %><br/></td>
+        <td scope="col"><%= user.created_at.in_time_zone('EST') %><br/></td>
+        <td scope="col"><%= user.admin %><br/></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
