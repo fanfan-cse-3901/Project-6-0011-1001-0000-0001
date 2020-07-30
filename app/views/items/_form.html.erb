@@ -3,7 +3,8 @@
 <%= form_with(model: item, local: true) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation py-1">
-      <p class="alert alert-warning"><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</p>
+      <p class="alert alert-warning"><%= pluralize(item.errors.count, "error") %> prohibited this item from being
+        saved:</p>
 
       <ul>
         <% item.errors.full_messages.each do |message| %>
@@ -15,12 +16,12 @@
   <!-- File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller -->
   <div class="field py-1 required">
     <%= form.label :title %>:
-    <%= form.text_field :title, :required => true%>
+    <%= form.text_field :title, :required => true %>
   </div>
 
   <div class="field py-1 required">
     <%= form.label :quality %>:
-    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality), :required => true%>
+    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality), :required => true %>
   </div>
 
   <div class="field py-1 required">
@@ -45,16 +46,23 @@
 
   <div class="field py-1">
     <%= form.label :description %>:
-  <br>
+    <br>
     <%= form.text_area :description %>
   </div>
 
-  <div class="field py-1 required">
-    <%= form.label :picture %>
-    <%= form.file_field :picture, :required => true%>
-  </div>
+  <% if current_page? new_item_path %>
+    <div class="field py-1 required">
+      <%= form.label :picture %>
+      <%= form.file_field :picture, :required => true %>
+    </div>
+  <% else %>
+    <div class="field py-1">
+      <%= form.label :picture %>
+      <%= form.file_field :picture %>
+    </div>
+  <% end %>
 
   <div class="actions py-1">
-    <%= form.submit "Submit", class:"btn btn-success" %>
+    <%= form.submit "Submit", class: "btn btn-success" %>
   </div>
 <% end %>
