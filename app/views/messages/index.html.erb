@@ -1,31 +1,29 @@
 <!-- File created on 07/28/2020 by Prachiti Garge -->
-<!-- File created on 07/28/2020 by Kevin Dong -->
-<h1 class="">Message Seller</h1>
+<!-- File created on 07/28/2020 by Kevin Dong: refactored and rewrote code -->
+<div class="container-fluid">
+  <h1>Message Seller</h1>
 
-<% if @over_ten %>
-  <%= link_to "Show previous", '?m=all', class:'button is-link' %>
-<% end %>
-
-<section id="messages" class="mb4">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <article class="message is-dark">
-        <div class="message-body">
-          <div class="inline-block"><strong><%= user.full_name %></strong> <%= message.message_time %></div>
-          <div class="block pt4">
-            <div class="f4"><%= sanitize markdown_to_html(message.body) %></div>
-          </div>
-        </div>
-      </article>
-    <% end %>
+  <% if @over_ten %>
+    <%= link_to "Show previous", '?m=all', class: 'btn btn-primary' %>
   <% end %>
-</section>
 
-<%= form_for [@conversation, @message] do |f| %>
-  <%= f.text_area :body, class: "textarea", placeholder: "Inquire about a item..." %>
-  <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div class="text-align-right">
-    <%= f.submit "Send message", class: "button is-link is-large mt3" %>
+  <div class="col">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <% user = User.find(message.user_id) %>
+          <em><%= user.full_name %></em>
+          <%= message.message_time %>
+          <%= sanitize markdown_to_html(message.body) %>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+  <div class="col-lg-3">
+    <%= form_for [@conversation, @message] do |f| %>
+      <%= f.text_area :body, placeholder: "Inquire about a item...", class: 'form-control' %>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+      <div>
+        <%= f.submit "Send message", class: "btn btn-success mt-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>
