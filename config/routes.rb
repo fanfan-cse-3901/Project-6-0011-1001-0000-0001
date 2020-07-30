@@ -4,6 +4,9 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :transactions
+  get 'transactions/create'
+  get 'transactions/edit'
+  get 'transactions/view'
   # File Edited on 07/20/2020 by Amanda Cheng: Profile actions initialized
   resources :profiles
   # File Edited on 07/25/2020 by Yifan Yao: Redirect list of user goes to users

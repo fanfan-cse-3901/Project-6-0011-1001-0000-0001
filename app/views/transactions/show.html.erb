@@ -1,19 +1,17 @@
 <div class="container">
-  <p>
-    <strong>Item ID</strong>
-    <%= @transaction.item_id %>
-  </p>
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Item ID: <%= @transaction.item_id %></li>
+        <li class="list-group-item">Title: <%= Item.find_by(id: @transaction.item_id).title %></li>
+        <li class="list-group-item">Purchaser ID: <%= @transaction.user_id %></li>
+        <li class="list-group-item">Purchaser Name: <%= User.find_by(id: @transaction.user_id).full_name %></li>
+        <li class="list-group-item">Rating: <%= @transaction.rating %></li>
+      </ul>
 
-  <p>
-    <strong>Purchaser ID</strong>
-    <%= @transaction.user_id %>
-  </p>
-
-  <p>
-    <strong>Rating:</strong>
-    <%= @transaction.rating %>
-  </p>
-
-  <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-  <%= link_to 'Back', transactions_path %>
+      <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+      <%= link_to 'Back', transactions_path %>
+    </div>
+  </div>
 </div>
+
