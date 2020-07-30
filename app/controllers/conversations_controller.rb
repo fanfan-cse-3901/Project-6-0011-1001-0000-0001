@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
 
   # Where we find conversations
   def index
+    @title = 'Conversation'
     @users = User.all
     @conversations = Conversation.all
   end

@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   # File Edited on 07/25/2020 by Kevin Dong: Search implementation
   def index
+    @title = 'Items'
     if params[:search]
       @items = Item.where('title LIKE ?', "%#{params[:search]}%")
       @items = Item.where('sub_category LIKE ?', params[:sub_category]) if params[:sub_category] != 'All'
@@ -26,11 +27,13 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @title = 'New Item'
     @item = Item.new
   end
 
   # GET /items/1/edit
   def edit
+    @title = 'Edit Item'
     @item = Item.find(params[:id])
     if current_user.id != @item.user_id && !current_user.admin
       respond_to do |format|

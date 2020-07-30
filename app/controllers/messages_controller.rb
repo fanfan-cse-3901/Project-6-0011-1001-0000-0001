@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   before_action :find_conversation
 
   def index
+    @title = "Messages"
     @messages = @conversation.messages
 
     # If more than 10 messages, show only latest ten

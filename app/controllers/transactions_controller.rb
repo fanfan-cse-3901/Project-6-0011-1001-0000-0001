@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
+    @title = 'Transactions'
     if current_user.admin
       @transactions = Transaction.all
     else
@@ -20,11 +21,13 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
+    @title = 'New Transactions'
     @transaction = Transaction.new
   end
 
   # GET /transactions/1/edit
   def edit
+    @title = 'Edit Transactions'
   end
 
   # POST /transactions

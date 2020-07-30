@@ -4,6 +4,7 @@
 # File Edited on 07/29/2020 by Yifan Yao: Refactor codes
 class UsersController < ApplicationController
   def index
+    @title = 'Users'
     if current_user.admin
       @users = User.all
     else
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def add_admin
+    @title = 'Admin'
     if current_user.admin
       @users = User.where(admin: true)
     else
