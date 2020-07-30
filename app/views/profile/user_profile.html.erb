@@ -23,15 +23,15 @@
 
   <h3 class="big_title">Your Items</h3>
   <%#The design of layout is that only 4 items are shown in 1 row in user profile %>
-  <%numOfCols = 4 %>
-  <%rowCount = 0 %>
+  <%num_of_cols = 4 %>
+  <%row_count = 0 %>
   <div class="item_list">
     <% @item.each do |i| %>
       <%# For every number of columns, create new row %>
-      <%if (rowCount % numOfCols == 0)%>
+      <%if row_count % num_of_cols == 0%>
         <div class="row">
       <%end  %>
-      <%rowCount= rowCount+1 %>
+      <%row_count= row_count+1 %>
 
       <div class="text-center p-2">
         <div>
@@ -50,7 +50,7 @@
         </div>
       </div>
       <%# End every 4 column item listing with end of row tag %>
-      <%if (rowCount % numOfCols == 0)%>
+      <%if (row_count % num_of_cols == 0)%>
         </div>
       <%end  %>
 
