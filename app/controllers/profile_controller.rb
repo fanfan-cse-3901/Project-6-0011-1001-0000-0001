@@ -23,7 +23,7 @@ class ProfileController < ApplicationController
     @title = 'User Profile'
     @full_name = current_user.full_name
     @email = current_user.email
-
+    @purchases = Transaction.where(user_id: current_user.id)
     # item is an array of arrays
     @user_items = []
     # p = Profile.new item: 'amanda'
@@ -60,7 +60,7 @@ class ProfileController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(title: params[:item][:title])
     format.html { redirect_to '/profile/user_profile', notice: 'Item was successfully updated.' }
-      # redirect_to '/profile/user_profile'# profile_path(@item)
+    # redirect_to '/profile/user_profile'# profile_path(@item)
 
     # respond_to do |format|
     #   if @profile.update(profile_params)

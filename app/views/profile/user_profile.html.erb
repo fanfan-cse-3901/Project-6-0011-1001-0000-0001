@@ -64,5 +64,7 @@
 
     <% end %>
   </div>
-
+  <% @purchases.each do |r| %>
+    <%= r.item.title %>: <%= link_to "Show Transaction", r %>
+  <% end %>
 </div>
