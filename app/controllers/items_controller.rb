@@ -23,7 +23,13 @@ class ItemsController < ApplicationController
 
   # GET /items/1
   # GET /items/1.json
-  def show; end
+  def show
+    get_avg_rating = "SELECT AVG(rating) FROM transactions
+                      JOIN items ON transactions.item_id = items.id
+                      WHERE items.user_id = #{@item.user_id};"
+    rates = ActiveRecord::Base.connection.execute(get_avg_rating)
+    @rating = rates[0]["AVG(rating)"]
+  end
 
   # GET /items/new
   def new

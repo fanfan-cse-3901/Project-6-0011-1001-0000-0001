@@ -20,6 +20,7 @@
     <div class="col-lg-4">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Seller: <%= @item.user.full_name %></li>
+        <li class="list-group-item">Seller Rating: <%= @rating %></li>
         <li class="list-group-item">Quality: <%= @item.quality %></li>
         <li class="list-group-item">Price: <%= number_to_currency(@item.price) %></li>
         <li class="list-group-item">Color: <%= @item.color %></li>
