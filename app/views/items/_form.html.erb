@@ -40,7 +40,7 @@
     <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location), :required => true %>
   </div>
 
-  <div class="field py-1 required form-group">
+  <div class="field py-1 form-group required'">
     <%= form.label :sub_category %>:
     <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category), :required => true %>
   </div>
