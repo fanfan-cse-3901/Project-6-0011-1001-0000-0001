@@ -15,33 +15,34 @@
   <% end %>
   <!-- File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller -->
   <!-- File Edited on 07/28/2020 by Kevin Dong: require -->
-  <div class="field py-1 required form-group">
-    <%= form.label :title %>:
-    <%= form.text_field :title, :required => true, class: "form-control" %>
+  <!-- File Edited on 07/29/2020 by Yifan Yao: bug fixes -->
+  <div class="field py-1  form-group">
+    <%= form.label :title, class: "required" %>
+    <%= form.text_field :title, :required => true, class: "form-control " %>
   </div>
 
-  <div class="field py-1 required form-group">
-    <%= form.label :quality %>:
+  <div class="field py-1 form-group">
+    <%= form.label :quality, class: "required" %>
     <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality), :required => true %>
   </div>
 
-  <div class="field py-1 required form-group">
-    <%= form.label :price %>
+  <div class="field py-1 form-group">
+    <%= form.label :price, class: "required" %>
     <%= form.number_field :price, in: 0...999, step: 0.01, :required => true, class: "form-control" %>
   </div>
 
-  <div class="field py-1 required form-group">
-    <%= form.label :color %>:
+  <div class="field py-1 form-group">
+    <%= form.label :color, class: "required" %>
     <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color), :required => true %>
   </div>
 
-  <div class="field py-1 required form-group">
-    <%= form.label :location %>:
+  <div class="field py-1  form-group">
+    <%= form.label :location, class: "required" %>
     <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location), :required => true %>
   </div>
 
-  <div class="field py-1 required form-group">
-    <%= form.label :sub_category %>:
+  <div class="field py-1 form-group">
+    <%= form.label :sub_category, class: "required" %>
     <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category), :required => true %>
   </div>
 
@@ -52,8 +53,8 @@
   </div>
 
   <% if current_page? new_item_path %>
-    <div class="field py-1 required form-group">
-      <%= form.label :picture %>
+    <div class="field py-1 form-group">
+      <%= form.label :picture, class: "required" %>
       <%= form.file_field :picture, :required => true %>
     </div>
   <% else %>
