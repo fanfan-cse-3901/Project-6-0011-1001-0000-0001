@@ -6,7 +6,6 @@
     <div id="error_explanation py-1">
       <p class="alert alert-warning"><%= pluralize(item.errors.count, "error") %> prohibited this item from being
         saved:</p>
-
       <ul>
         <% item.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -15,46 +14,54 @@
     </div>
   <% end %>
   <!-- File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller -->
-  <div class="field py-1 form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control" %>
+  <!-- File Edited on 07/28/2020 by Kevin Dong: require -->
+  <div class="field py-1 required form-group">
+    <%= form.label :title %>:
+    <%= form.text_field :title, :required => true, class: "form-control" %>
   </div>
 
-  <div class="field py-1 form-group">
-    <%= form.label :quality %>
-    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality) %>
+  <div class="field py-1 required form-group">
+    <%= form.label :quality %>:
+    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality), :required => true %>
   </div>
 
-  <div class="field py-1 form-group">
+  <div class="field py-1 required form-group">
     <%= form.label :price %>
-    <%= form.number_field :price, in: 0...999, step: 0.01, class: "form-control" %>
+    <%= form.number_field :price, in: 0...999, step: 0.01, :required => true, class: "form-control" %>
+  </div>
+
+  <div class="field py-1 required form-group">
+    <%= form.label :color %>:
+    <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color), :required => true %>
+  </div>
+
+  <div class="field py-1 required form-group">
+    <%= form.label :location %>:
+    <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location), :required => true %>
+  </div>
+
+  <div class="field py-1 required form-group">
+    <%= form.label :sub_category %>:
+    <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category), :required => true %>
   </div>
 
   <div class="field py-1 form-group">
-    <%= form.label :color %>
-    <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color) %>
-  </div>
-
-  <div class="field py-1 form-group">
-    <%= form.label :location %>
-    <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location) %>
-  </div>
-
-  <div class="field py-1 form-group">
-    <%= form.label :sub_category %>
-    <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category) %>
-  </div>
-
-  <div class="field py-1 form-group">
-    <%= form.label :description %>
+    <%= form.label :description %>:
     <br>
     <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field py-1 form-group">
-    <%= form.label :picture %>
-    <%= form.file_field :picture %>
-  </div>
+  <% if current_page? new_item_path %>
+    <div class="field py-1 required form-group">
+      <%= form.label :picture %>
+      <%= form.file_field :picture, :required => true %>
+    </div>
+  <% else %>
+    <div class="field py-1 form-group">
+      <%= form.label :picture %>
+      <%= form.file_field :picture %>
+    </div>
+  <% end %>
 
   <div class="actions py-1 form-group">
     <%= form.submit "Submit", class: "btn btn-success" %>
