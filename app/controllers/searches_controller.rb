@@ -6,6 +6,7 @@ class SearchesController < ApplicationController
   def index
     items = Item.all
     items = items.where('title LIKE ?', "%#{params[:keywords]}%") if params[:keywords] != ''
+    items = items.where('sub_category LIKE ?', params[:sub_category]) if params[:sub_category] != 'All'
     items = items.where('color LIKE ?', params[:color]) if params[:color] != 'All'
     items = items.where('quality LIKE ?', params[:quality]) if params[:quality] != 'All'
     items = items.where('price <= ?', params[:price]) if params[:price] != ''
