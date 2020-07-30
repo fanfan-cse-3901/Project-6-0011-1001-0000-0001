@@ -21,3 +21,8 @@
 // File Edited on 07/22/2020 by Yifan Yao: Add jQuery into JavaScript for devise
 //= require jquery
 //= require jquery_ujs
+
+// File Edited on 07/29/2020 by Yifan Yao: Add form-control for all <select> elements
+$(document).ready(function () {
+  $("select").addClass("form-control");
+});

@@ -1,9 +1,11 @@
 <!-- File Edited on 07/25/2020 by Kevin Dong: Dropdowns -->
 <!-- File Edited on 07/29/2020 by Yifan Yao: Insert Bootstrap into error messages -->
+<!-- File Edited on 07/29/2020 by Yifan Yao: Insert more Bootstrap -->
 <%= form_with(model: item, local: true) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation py-1">
-      <p class="alert alert-warning"><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</p>
+      <p class="alert alert-warning"><%= pluralize(item.errors.count, "error") %> prohibited this item from being
+        saved:</p>
 
       <ul>
         <% item.errors.full_messages.each do |message| %>
@@ -13,48 +15,48 @@
     </div>
   <% end %>
   <!-- File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller -->
-  <div class="field py-1">
-    <%= form.label :title %>:
-    <%= form.text_field :title %>
+  <div class="field py-1 form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field py-1">
-    <%= form.label :quality %>:
-    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality)%>
+  <div class="field py-1 form-group">
+    <%= form.label :quality %>
+    <%= form.select :quality, options_for_select(Globals::Items::QUALITY, item.quality) %>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 form-group">
     <%= form.label :price %>
-    <%= form.number_field :price, in: 0...999, step: 0.01 %>
+    <%= form.number_field :price, in: 0...999, step: 0.01, class: "form-control" %>
   </div>
 
-  <div class="field py-1">
-    <%= form.label :color %>:
+  <div class="field py-1 form-group">
+    <%= form.label :color %>
     <%= form.select :color, options_for_select(Globals::Items::COLORS, item.color) %>
   </div>
 
-  <div class="field py-1">
-    <%= form.label :location %>:
+  <div class="field py-1 form-group">
+    <%= form.label :location %>
     <%= form.select :location, options_for_select(Globals::Items::LOCATION, item.location) %>
   </div>
 
-  <div class="field py-1">
-    <%= form.label :sub_category %>:
+  <div class="field py-1 form-group">
+    <%= form.label :sub_category %>
     <%= form.select :sub_category, options_for_select(Globals::Items::SUB_CAT, item.sub_category) %>
   </div>
 
-  <div class="field py-1">
-    <%= form.label :description %>:
-  <br>
-    <%= form.text_area :description %>
+  <div class="field py-1 form-group">
+    <%= form.label :description %>
+    <br>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field py-1">
+  <div class="field py-1 form-group">
     <%= form.label :picture %>
     <%= form.file_field :picture %>
   </div>
 
-  <div class="actions py-1">
-    <%= form.submit "Submit", class:"btn btn-success" %>
+  <div class="actions py-1 form-group">
+    <%= form.submit "Submit", class: "btn btn-success" %>
   </div>
 <% end %>
