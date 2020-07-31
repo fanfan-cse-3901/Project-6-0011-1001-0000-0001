@@ -8,17 +8,24 @@
 <!-- File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold -->
 <!-- File Edited on 07/31/2020 by Amanda Cheng: Made User profile responsive with images and updated organization -->
 <!-- File Edited on 07/31/2020 by Yifan Yao: Add more art works here -->
+<!-- File Edited on 07/31/2020 by Yifan Yao: Redesign rating as helper method and use it anywhere -->
 <div class="container-fluid center jumbotron bg">
   <h1 class="pt-3"><%= @title + " for " + @full_name %></h1>
-  <div class="userAttr">
+  <div class="userAttr pt-2">
     <div class="d-flex flex-row">
-      <p class="text-primary p-2">Email: </p>
-      <p class="p-2"><%= current_user.email %> </p>
+      <p class="text-primary p-1">Email: </p>
+      <p class="p-1"><%= current_user.email %> </p>
     </div>
     <div class="d-flex flex-row">
-      <p class="text-primary p-2">Number of Listings: </p>
-      <p class="p-2"><%= @num_listings %></p>
+      <p class="text-primary p-1">Number of Listings: </p>
+      <p class="p-1"><%= @num_listings %></p>
     </div>
+    <% unless @rating.nil? %>
+      <div class="d-flex flex-row">
+        <p class="text-primary p-1">My Rating: </p>
+        <p class="p-1"><%= @rating %> out of 5</p>
+      </div>
+    <% end %>
   </div>
 
   <div class="newItem">

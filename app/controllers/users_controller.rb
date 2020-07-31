@@ -2,7 +2,10 @@
 # File Edited on 07/25/2020 by Yifan Yao: Integrate alert
 # File Edited on 07/29/2020 by Yifan Yao: Add admin panel
 # File Edited on 07/29/2020 by Yifan Yao: Refactor codes
+# File Edited on 07/31/2020 by Yifan Yao: Redesign rating as helper method and use it anywhere
 class UsersController < ApplicationController
+  include UsersHelper
+
   def index
     @title = 'Users'
     if current_user.admin

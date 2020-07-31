@@ -6,7 +6,10 @@
 # File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller
 # File Edited on 07/28/2020 by Kevin Dong: Refactored
 # File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold
+# File Edited on 07/31/2020 by Yifan Yao: Redesign rating as helper method and use it anywhere
 class ItemsController < ApplicationController
+  include UsersHelper
+
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -25,11 +28,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    get_avg_rating = "SELECT AVG(rating) FROM transactions
-                      JOIN items ON transactions.item_id = items.id
-                      WHERE items.user_id = #{@item.user_id};"
-    rates = ActiveRecord::Base.connection.execute(get_avg_rating)
-    @rating = rates[0]["AVG(rating)"]
+    @rating = avg_rating @item.user_id
   end
 
   # GET /items/new

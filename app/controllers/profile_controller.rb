@@ -3,7 +3,10 @@
 # File created 07/18/2020 by Amanda Cheng
 # File edited 07/20/2020 by Amanda Cheng: Refactored method naming convention to fit snake case
 # File Edited on 07/28/2020 by Kevin Dong: Refactored
+# File Edited on 07/31/2020 by Yifan Yao: Redesign rating as helper method and use it anywhere
 class ProfileController < ApplicationController
+  include UsersHelper
+
   before_action :user_profile, only: [:show, :edit, :update, :destroy]
   # GET /profile
   def index
@@ -19,6 +22,7 @@ class ProfileController < ApplicationController
 
   end
 
+  # File Edited on 07/31/2020 by Yifan Yao: Display rating in user_profile
   def user_profile
     @title = 'User Profile'
     @full_name = current_user.full_name
@@ -26,6 +30,7 @@ class ProfileController < ApplicationController
     @purchases = Transaction.where(user_id: current_user.id)
     # item is an array of arrays
     @user_items = []
+    @rating = avg_rating current_user.id
     # p = Profile.new item: 'amanda'
     #
     # p.save
