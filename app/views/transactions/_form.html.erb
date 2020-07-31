@@ -1,4 +1,5 @@
 <!-- File Edited on 07/30/2020 by Yifan Yao: Show buyer's user id for seller to make a transaction -->
+<!-- File Edited on 07/31/2020 by Yifan Yao: Add more art works here -->
 <%= form_with(model: transaction, local: true) do |form| %>
   <% if transaction.errors.any? %>
     <div id="error_explanation">
@@ -14,11 +15,13 @@
   <% end %>
 
   <% if @transaction.user_id != current_user.id %>
+    <p class="alert alert-danger">You can only create transaction once.</p>
+    <p class="alert alert-primary">You may find User ID through conversation.</p>
     <div class="field">
       <%= form.hidden_field :item_id, :value => params[:item] %>
     </div>
     <div class="field py-1 form-group">
-      <%= form.label "User ID" %>
+      <%= form.label :user_id, "User ID" %>
       <%= form.text_field :user_id, class: "form-control" %>
     </div>
   <% end %>

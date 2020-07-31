@@ -6,6 +6,8 @@
 <!-- File Edited on 07/30/2020 by Troy Stein: Edited profile page to have transactions -->
 <!-- File Edited on 07/30/2020 by Yifan Yao: Add order history, insert Bootstrap -->
 <!-- File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold -->
+<!-- File Edited on 07/31/2020 by Amanda Cheng: Made User profile responsive with images and updated organization -->
+<!-- File Edited on 07/31/2020 by Yifan Yao: Add more art works here -->
 <div class="container-fluid center jumbotron bg">
   <h1 class="pt-3"><%= @title + " for " + @full_name %></h1>
   <div class="userAttr">
@@ -27,7 +29,7 @@
   <%#The design of layout is that only 4 items are shown in 1 row in user profile %>
   <div class="item_list row">
     <% @item.each do |i| %>
-      <div class="col-lg-3 col-md-4 text-center p-2">
+      <div class="col-lg-3 col-md-12 text-center p-2">
         <p class="item_title"><%= i.title %></p>
         <% if i.picture.attached? %>
           <div class="thumbnail">

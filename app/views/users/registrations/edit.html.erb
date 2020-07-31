@@ -4,6 +4,7 @@
 <!-- File Edited on 07/20/2020 by Yifan Yao: Emphasis important messages -->
 <!-- File Edited on 07/21/2020 by Yifan Yao: Prevent misunderstood by user -->
 <!-- File Edited on 07/29/2020 by Yifan Yao: Only OSU email will be accepted -->
+<!-- File Edited on 07/31/2020 by Yifan Yao: Add more art works here -->
 <div class="container col-lg-5 bg">
   <h2 class="pt-3">Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -42,7 +43,7 @@
     </div>
 
     <div class="field form-group pt-5">
-      <%= f.label :current_password %>
+      <%= f.label :current_password, :class => "required" %>
       <small class="font-weight-bold">(we need your current password to confirm your changes)</small><br/>
       <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
     </div>
