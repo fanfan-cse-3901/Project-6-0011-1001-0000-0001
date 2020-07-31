@@ -1,10 +1,10 @@
 <!-- File Edited 07/30/2020 by Troy Stein: Edited access to path -->
 <div class="container">
+  <h1 class="pt-3"><%= Item.find_by(id: @transaction.item_id).title %></h1>
   <div class="row">
     <div class="col-lg-6 mx-auto">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Item ID: <%= @transaction.item_id %></li>
-        <li class="list-group-item">Title: <%= Item.find_by(id: @transaction.item_id).title %></li>
         <li class="list-group-item">Purchaser ID: <%= @transaction.user_id %></li>
         <li class="list-group-item">Purchaser Name: <%= User.find_by(id: @transaction.user_id).full_name %></li>
         <li class="list-group-item">Rating: <%= @transaction.rating %></li>
