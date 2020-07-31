@@ -1,3 +1,4 @@
+# File Edited on 07/30/2020 by Yifan Yao: Item can be only sold by publisher
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
@@ -37,9 +38,9 @@ class TransactionsController < ApplicationController
     # @item = Item.find(params[:id])
     # @transaction.item_id = params.dig(@item.id)
     # @item = Item.new(profile_params)
-    if current_user.id == @transaction.user_id
+    if current_user.id == @transaction.user_id || current_user.id != Item.find(@transaction.item_id).user_id
       respond_to do |format|
-        format.html { redirect_to profile_user_profile_path, alert: 'Transaction cannot create transaction for self.' }
+        format.html { redirect_to profile_user_profile_path, alert: 'Invalid Transaction.' }
       end
     else
       respond_to do |format|
