@@ -5,6 +5,7 @@
 <!-- File Edited on 07/27/2020 by Prachiti Garge: Added the chat section -->
 <!-- File Edited on 07/27/2020 by Yifan Yao: Split information into two column -->
 <!-- File Edited on 07/28/2020 by Kevin Dong: Refactored code, formatting -->
+<!-- File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold -->
 <div class="container">
   <h1 class="pt-3 text-center"><%= @item.title %></h1>
   <div class="row">
@@ -29,7 +30,7 @@
         <li class="list-group-item">Description: <%= @item.description %></li>
       </ul>
 
-      <% if @item.user_id == current_user.id || current_user.admin %>
+      <% if (@item.user_id == current_user.id || current_user.admin) && (Transaction.find_by_item_id @item).nil? %>
         <%= link_to 'Edit', edit_item_path(@item) %> |
       <% end %>
       <%= link_to 'Back', items_path %>

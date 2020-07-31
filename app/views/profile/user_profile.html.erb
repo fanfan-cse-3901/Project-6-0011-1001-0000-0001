@@ -1,11 +1,11 @@
 <!-- File Created 07/18/2020 by Amanda Cheng -->
-<!-- File Edited 07/20/2020 by Amanda Cheng: Introduced Bootstrap -->
-<!-- File Edited 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interface -->
-<!-- File Edited 07/27/2020 by Amanda Cheng: Updated Bootstrap to align listings -->
-<!-- File Edited 07/28/2020 by Amanda Cheng: Refactored code -->
-<!-- File Edited 07/30/2020 by Troy Stein: Edited profile page to have transactions -->
-<!-- File Edited 07/30/2020 by Yifan Yao: Add order history, insert Bootstrap -->
-
+<!-- File Edited on 07/20/2020 by Amanda Cheng: Introduced Bootstrap -->
+<!-- File Edited on 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interface -->
+<!-- File Edited on 07/27/2020 by Amanda Cheng: Updated Bootstrap to align listings -->
+<!-- File Edited on 07/28/2020 by Amanda Cheng: Refactored code -->
+<!-- File Edited on 07/30/2020 by Troy Stein: Edited profile page to have transactions -->
+<!-- File Edited on 07/30/2020 by Yifan Yao: Add order history, insert Bootstrap -->
+<!-- File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold -->
 <div class="container center jumbotron bg">
   <h1 class="pt-3"><%= @title + " for " + @full_name %></h1>
   <div class="userAttr">
@@ -51,9 +51,7 @@
               | <%= link_to "Edit Item", edit_item_path(i) %>
               | <%= link_to "Delete", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
           <% else %>
-            <div class="pb-2"><%= link_to "Show Item", i %> | Item Sold
-              | <%= link_to "Edit", edit_item_path(i) %>
-              | <%= link_to "Delete", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
+            <div class="pb-2"><%= link_to "Show Item", i %> | Item Sold</div>
           <% end %>
           <%#=Another way to show delete button%>
           <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>

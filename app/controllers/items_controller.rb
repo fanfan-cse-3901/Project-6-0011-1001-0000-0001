@@ -5,6 +5,7 @@
 # File Edited on 07/25/2020 by Yifan Yao: Integrate alert
 # File Edited on 07/25/2020 by Yifan Yao: Get user_id by controller
 # File Edited on 07/28/2020 by Kevin Dong: Refactored
+# File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -84,7 +85,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    if current_user.id == @item.user_id || current_user.admin
+    if (current_user.id == @item.user_id || current_user.admin) && (Transaction.find_by_item_id @item).nil?
       @item.destroy
       respond_to do |format|
         format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }

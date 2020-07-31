@@ -5,6 +5,7 @@
 <!-- File Edited on 07/26/2020 by Kevin Dong: Search filters -->
 <!-- File Edited on 07/27/2020 by Yifan Yao: Display empty columns if user cannot make operations -->
 <!-- File Edited on 07/28/2020 by Kevin Dong: Search filters removed, updated formatting -->
+<!-- File Edited on 07/30/2020 by Yifan Yao: Anyone cannot edit/delete item when it sold -->
 <div class="container-fluid bg">
   <h1 class="pt-3">Items</h1>
 
@@ -34,9 +35,9 @@
           <td scope="col"><%= item.quality %></td>
           <td scope="col"><%= number_to_currency(item.price) %></td>
           <td scope="col"><%= item.sub_category %></td>
-          <td><%= link_to 'Show', item , class: "btn btn-success my-2 my-sm-0"%></td>
-          <% if item.user_id == current_user.id || current_user.admin %>
-            <td><%= link_to 'Edit', edit_item_path(item) , class: "btn btn-primary my-2 my-sm-0"%></td>
+          <td><%= link_to 'Show', item, class: "btn btn-success my-2 my-sm-0" %></td>
+          <% if (item.user_id == current_user.id || current_user.admin) && (Transaction.find_by_item_id item).nil? %>
+            <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary my-2 my-sm-0" %></td>
             <td><%= link_to 'Destroy', item, class: "btn btn-danger my-2 my-sm-0", method: :delete, data: {confirm: 'Are you sure?'} %></td>
           <% else %>
             <td></td>
