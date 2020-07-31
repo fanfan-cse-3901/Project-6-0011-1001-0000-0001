@@ -1,3 +1,4 @@
+<!-- File Edited on 07/30/2020 by Yifan Yao: Show buyer's user id for seller to make a transaction -->
 <%= form_with(model: transaction, local: true) do |form| %>
   <% if transaction.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +18,7 @@
       <%= form.hidden_field :item_id, :value => params[:item] %>
     </div>
     <div class="field py-1 form-group">
-      <%= form.label :user_id %>
+      <%= form.label "User ID" %>
       <%= form.text_field :user_id, class: "form-control" %>
     </div>
   <% end %>

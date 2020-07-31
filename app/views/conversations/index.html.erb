@@ -1,5 +1,6 @@
 <!-- File created on 07/28/2020 by Prachiti Garge -->
 <!-- File Edited on 07/30/2020 by Yifan Yao: Correct useage of Bootstrap -->
+<!-- File Edited on 07/30/2020 by Yifan Yao: Show buyer's user id for seller to make a transaction -->
 <div class="container mc-auto">
   <div class="row">
     <div class="col-lg-5">
@@ -13,7 +14,7 @@
               <% receiver = User.find(conversation.sender_id) %>
             <% end %>
             <% if current_user.id != receiver %>
-              <li class="list-group-item show-conv"><%= link_to "#{receiver.full_name} (ID: #{receiver.id})", conversation_messages_path(conversation) %></li>
+              <li class="list-group-item show-conv"><%= link_to "#{receiver.full_name} (User ID: #{receiver.id})", conversation_messages_path(conversation) %></li>
             <% end %>
           <% end %>
         <% end %>
