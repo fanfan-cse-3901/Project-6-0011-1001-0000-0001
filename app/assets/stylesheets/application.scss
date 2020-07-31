@@ -18,8 +18,13 @@
 @import "bootstrap";
 
 /* Created on 07/25/2020 by Kevin Dong */
+/* File Edited 07/30/2020 by Yifan Yao: Unit convert */
 html, .bg {
   background-color: white;
+  font-size: 1.125em; /* 18 / 16 = 1.125 */
+  line-height: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
+  align-content: center;
+  margin: auto;
 }
 
 /* Created on 07/21/2020 by Kevin Dong */
@@ -60,7 +65,7 @@ html, .bg {
 }
 
 /* Created on 07/21/2020 by Kevin Dong */
-.navbar-brand , div h1 {
+.navbar-brand, div h1 {
   color: goldenrod;
   font-weight: bold;
   font-style: normal;
@@ -74,21 +79,23 @@ em {
 }
 
 /* Created on 07/26/2020 by Kevin Dong */
+/* File Edited 07/30/2020 by Yifan Yao: Unit convert */
 #User {
   float: right;
   display: block;
-  padding: 0.6111111111em 0.6111111111em;
+  padding: 1.2222222222em 1.2222222222em; /* 22 / 18 = 1.2222222222 */
 }
 
 /* Created on 07/26/2020 by Kevin Dong */
+/* File Edited 07/30/2020 by Yifan Yao: Unit convert */
 .carousel-inner {
   margin: auto;
-  width: 640px;
+  width: 35.5555555556em; /* 640 / 18 = 35.5555555556 */
 }
 
 /* Created on 07/29/2020 by Kevin Dong */
-.required:after{
-  content:"*";
+.required:after {
+  content: "*";
   color: red;
 }
 
@@ -108,27 +115,31 @@ textarea {
 }
 
 /* File Edited on 07/21/2020 by Amanda Cheng: User Profile */
+/* File Edited 07/30/2020 by Yifan Yao: Error fixed */
 .title {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /* File Edited on 07/21/2020 by Amanda Cheng: User Profile */
+/* File Edited 07/30/2020 by Yifan Yao: Unit convert */
 .center h2 {
-  margin-bottom: 1em;
+  margin-bottom: 3.0555555556em; /* 55 / 18 = 3.0555555556 */
 }
 
 /* File Edited on 07/21/2020 by Amanda Cheng: User Profile */
+/* File Edited 07/30/2020 by Yifan Yao: Unit convert */
 .newItem {
-  margin-bottom: 3em;
+  margin-bottom: 3.0555555556em; /* 55 / 18 = 3.0555555556 */
 }
 
 
 /* File Edited 07/27/2020 by Amanda Cheng: User Profile */
 /* File Edited 07/27/2020 by Kevin Dong: User Profile better */
+/* File Edited 07/30/2020 by Yifan Yao: Unit convert */
 .thumbnail img {
   border: 1px solid #ddd;
   border-radius: 4px;
-  height: 300px;
+  height: 16.6666666667em; /* 300 / 18 = 16.6666666667em */
   margin: auto;
 }
 
@@ -141,7 +152,11 @@ textarea {
 .item_title {
   font-weight: bolder;
   color: mediumpurple;
-  font-color: mediumpurple;
   border-color: mediumpurple;
 }
 
+/* File Edited 07/30/2020 by Yifan Yao: Increase size for link */
+li a {
+  font-size: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
+  line-height: 1em; /* 22 / 22 = 1 */
+}
