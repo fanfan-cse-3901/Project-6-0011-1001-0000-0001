@@ -1,5 +1,6 @@
 # Project 6
-### Ruby on Rails Project
+
+## Ruby on Rails Project
 
 ### Roles
 
@@ -19,19 +20,17 @@
 
 ### Testing
 
-* The test plan is provided in Test_plan_Porject_6.pdf
+[Test Plan](docs/Test_plan_Project_6.pdf)
 
 ### Powerpoint Slides
 
-[Link Here](https://buckeyemailosu-my.sharepoint.com/:p:/r/personal/dong_696_buckeyemail_osu_edu/Documents/3rd%20Year/Summer%20Semester/CSE%203901%20-%200x3901/Proposals/Project-6-0011-1001-0000-0001%20amanda.pptx?d=w65e4b336d24441a1ad26cec228755c00&csf=1&web=1&e=AoCkKI)
+[FUREX](https://buckeyemailosu-my.sharepoint.com/:p:/r/personal/dong_696_buckeyemail_osu_edu/Documents/3rd%20Year/Summer%20Semester/CSE%203901%20-%200x3901/Proposals/Project-6-0011-1001-0000-0001%20amanda.pptx?d=w65e4b336d24441a1ad26cec228755c00&csf=1&web=1&e=AoCkKI)
 
 ### References
 
 * Lecture videos and slides
-* https://www.railstutorial.org/book
-* https://web-crunch.com/posts/lets-build-with-ruby-on-rails-trade-app-in-app-messaging
-
-
+* [Ruby on Rails Tutorial](https://www.railstutorial.org/book)
+* [Let's Build: With Ruby on Rails - Trade App With In-App Messaging](https://web-crunch.com/posts/lets-build-with-ruby-on-rails-trade-app-in-app-messaging)
 
 ### Setup
 
