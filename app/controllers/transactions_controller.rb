@@ -37,13 +37,19 @@ class TransactionsController < ApplicationController
     # @item = Item.find(params[:id])
     # @transaction.item_id = params.dig(@item.id)
     # @item = Item.new(profile_params)
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        format.html { render :new }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+    if current_user.id == @transaction.user_id
+      respond_to do |format|
+        format.html { redirect_to profile_user_profile_path, alert: 'Transaction cannot create transaction for self.' }
+      end
+    else
+      respond_to do |format|
+        if @transaction.save
+          format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+          format.json { render :show, status: :created, location: @transaction }
+        else
+          format.html { render :new }
+          format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
