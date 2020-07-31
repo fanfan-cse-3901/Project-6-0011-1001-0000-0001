@@ -1,11 +1,13 @@
-<!--File Created 07/18/2020 by Amanda Cheng-->
-<!--File Edited 07/20/2020 by Amanda Cheng: Introduced Bootstrap-->
-<!--File Edited 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interface-->
-<!--File Edited 07/27/2020 by Amanda Cheng: Updated Bootstrap to align listings-->
-<!--File Edited 07/28/2020 by Amanda Cheng: Refactored code-->
+<!-- File Created 07/18/2020 by Amanda Cheng -->
+<!-- File Edited 07/20/2020 by Amanda Cheng: Introduced Bootstrap -->
+<!-- File Edited 07/26/2020 by Amanda Cheng: Updated Bootstrap to enhance user interface -->
+<!-- File Edited 07/27/2020 by Amanda Cheng: Updated Bootstrap to align listings -->
+<!-- File Edited 07/28/2020 by Amanda Cheng: Refactored code -->
+<!-- File Edited 07/30/2020 by Troy Stein: Edited profile page to have transactions -->
+<!-- File Edited 07/30/2020 by Yifan Yao: Add order history, insert Bootstrap -->
 
-<div class="center jumbotron bg">
-  <h2 id="title"><%= @title + " for " + @full_name %></h2>
+<div class="container center jumbotron bg">
+  <h1 class="pt-3"><%= @title + " for " + @full_name %></h1>
   <div class="userAttr">
     <div class="d-flex flex-row">
       <p class="text-primary p-2">Email: </p>
@@ -21,7 +23,7 @@
     <%= link_to "Add New Item!", new_item_path, class: "btn btn-sm btn-primary" %>
   </div>
 
-  <h3 class="big_title">Your Items</h3>
+  <h1 class="pt-3">Your Listing</h1>
   <%#The design of layout is that only 4 items are shown in 1 row in user profile %>
   <% num_of_cols = 4 %>
   <% row_count = 0 %>
@@ -45,13 +47,13 @@
           <% end %>
 
           <% if (Transaction.find_by_item_id i).nil? %>
-            <div class="pb-2"><%= link_to "Show Item", i %> | <%= link_to "Sell Item", new_transaction_path(item: i) %>
+            <div class="pb-2"><%= link_to "Show", i %> | <%= link_to "Sell Item", new_transaction_path(item: i) %>
               | <%= link_to "Edit Item", edit_item_path(i) %>
-              | <%= link_to "Delete Item", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
+              | <%= link_to "Delete", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
           <% else %>
             <div class="pb-2"><%= link_to "Show Item", i %> | Item Sold
-              | <%= link_to "Edit Item", edit_item_path(i) %>
-              | <%= link_to "Delete Item", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
+              | <%= link_to "Edit", edit_item_path(i) %>
+              | <%= link_to "Delete", i, :method => :delete, data: {confirm: "Are you sure?"} %></div>
           <% end %>
           <%#=Another way to show delete button%>
           <%#= link_to "Delete Item", class: "btn btn-sm btn-primary", controller: 'profile', action: 'destroy', id: i.id, method: :delete%>
@@ -64,7 +66,35 @@
 
     <% end %>
   </div>
-  <% @purchases.each do |r| %>
-    <%= r.item.title %>: <%= link_to "Show Transaction", r %>
-  <% end %>
+
+  <div class="pt-5">
+    <h1>Order History</h1>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Seller</th>
+          <th scope="col">Bought On</th>
+          <th scope="col">Your Rates</th>
+        </tr>
+        </thead>
+
+        <tbody scope="col">
+        <% @purchases.each do |p| %>
+          <tr>
+            <td><%= p.item.title %></td>
+            <td><%= User.find(p.item.user_id).full_name %></td>
+            <td><%= p.created_at.in_time_zone('EST') %></td>
+            <% if p.rating.nil? %>
+              <td><%= link_to "Rate Now", p %></td>
+            <% else %>
+              <td><%= p.rating %></td>
+            <% end %>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
