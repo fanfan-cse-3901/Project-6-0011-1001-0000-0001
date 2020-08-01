@@ -24,6 +24,7 @@ class TransactionsController < ApplicationController
   def new
     @title = 'New Transactions'
     @transaction = Transaction.new
+    @num_users = User.all.count
   end
 
   # GET /transactions/1/edit
