@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # File Edited on 07/30/2020 by Yifan Yao: Item can be only sold by publisher
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: %i[show edit update destroy]
 
   # GET /transactions
   # GET /transactions.json
@@ -17,8 +19,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1
   # GET /transactions/1.json
-  def show
-  end
+  def show; end
 
   # GET /transactions/new
   def new
@@ -59,7 +60,7 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1.json
   def update
     respond_to do |format|
-      if @transaction.update(transaction_params)
+      if @transaction.update(rate_transaction)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @transaction }
       else
@@ -88,6 +89,10 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:item_id, :user_id, :rating)
+    params.require(:transaction).permit(:item_id, :user_id)
+  end
+
+  def rate_transaction
+    params.require(:transaction).permit(:rating)
   end
 end
